@@ -56,7 +56,7 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .shot img.macshot{border:0;width:100%}
 .shot.bleed{grid-column:1/-1;margin-inline:calc(50% - 50vw)}
 .half{color:rgba(21,35,59,.3)}
-#skills .row .k{font-size:11px;line-height:1.35;padding-top:2px;text-transform:uppercase;letter-spacing:.08em;color:#c2450e}
+#skills .row .k,#process .row .k{font-size:11px;line-height:1.35;padding-top:2px;text-transform:uppercase;letter-spacing:.08em;color:#c2450e}
 .dcap{grid-column:1/5;align-self:start;padding-top:16px;color:var(--ink);font-weight:400;font-size:clamp(20px,2vw,28px);line-height:1.05;letter-spacing:-.01em}
 .dcap+.detail-text{margin-top:calc(16px + clamp(20px,2vw,28px)*.107)}
 @media (max-width:900px){.dcap+.detail-text{margin-top:0}}
@@ -550,13 +550,13 @@ body{margin:0}
   </section>
 
   <section class="sec grid" id="process">
-    <h2 class="big statement"><span class="in"></span>Объясняю каждый этап простым языком. Так проще и заказчику, и команде.</h2>
+    <h2 class="big statement faint"><span class="in"></span>Объясняю <span class="half">каждый этап простым языком</span>. Так проще <span class="half">и заказчику, и команде</span></h2>
     <div class="rows">
-      <div class="row"><div class="k">01 Задача</div><div class="v">Разбираюсь, что за бизнес, кто клиенты и чего должен добиться сайт.</div><div class="x small">Бриф</div></div>
-      <div class="row"><div class="k">02 Структура</div><div class="v">Какие блоки нужны и в каком порядке.</div><div class="x small">Прототип</div></div>
-      <div class="row"><div class="k">03 Дизайн</div><div class="v">Макеты и графика.</div><div class="x small">Figma<br>Photoshop</div></div>
-      <div class="row"><div class="k">04 Разработка</div><div class="v">Код, проверка на телефоне и компьютере.</div><div class="x small">VS Code<br>Claude Code</div></div>
-      <div class="row"><div class="k">05 Запуск</div><div class="v">Публикую и проверяю, что всё работает. <span class="ph">[поддержка после запуска?]</span></div><div class="x small">Релиз</div></div>
+      <div class="row"><div class="k">01 Задача</div><div class="v">Разбираюсь, что за бизнес, кто клиенты и какую проблему нужно решить.</div><div class="x small">Бриф</div></div>
+      <div class="row"><div class="k">02 Структура</div><div class="v">Определяю, какие разделы нужны веб-приложению или какие блоки нужны сайту, и в каком порядке.</div><div class="x small">Прототип</div></div>
+      <div class="row"><div class="k">03 Дизайн</div><div class="v">При необходимости сначала строю дизайн-систему в Figma, а затем дорабатываю макеты с помощью нейросетей.</div><div class="x small">Figma<br>Нейросети</div></div>
+      <div class="row"><div class="k">04 Разработка</div><div class="v">Пишу код и тестирую на ошибки на телефоне и компьютере.</div><div class="x small">VS Code<br>Claude Code</div></div>
+      <div class="row"><div class="k">05 Запуск</div><div class="v">Публикую проект и беру на себя техническую поддержку.</div><div class="x small">Релиз<br>Поддержка</div></div>
     </div>
   </section>
 
