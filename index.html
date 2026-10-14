@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Алексей Сухоплеска</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap">
+<style>
+/* Layout: white gallery minimalism. Giant name across the full width, 12-column asymmetric grid, caps statements offset to the right, hairline rows. Deliberately single light look. */
+:root{
+  --white:#faf8f5; --ink:#15233b; --grey:#56607a; --hair:#e3ded5; --mark:#f1ece4;
+  --sans:"Inter Tight","Helvetica Neue",Arial,system-ui,sans-serif;
+  --gut:max(16px,3vw);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;background:var(--white);color:var(--ink);font:400 14px/1.45 var(--sans)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.page{padding-inline:var(--gut)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:20px}
+.small{font-size:11px;line-height:1.35;text-transform:uppercase;letter-spacing:.02em}
+.faint{color:rgba(21,35,59,.2)}
+.top a.faint:hover{color:var(--ink)}
+.sub{margin:18px 0 0;font-size:clamp(16px,1.5vw,22px);text-transform:uppercase;letter-spacing:-.01em}
+.case-detail{padding-block:8px 48px;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:20px;row-gap:32px}
+.shot{margin:0;display:grid;gap:8px;min-width:0}
+.shot img{display:block;width:100%;height:auto;border:1px solid var(--hair)}
+.shot figcaption{color:var(--grey)}
+.shot.wide{grid-column:2/13}
+.detail-text{grid-column:5/13;display:grid}
+.phones{grid-column:2/13;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:start}
+.stage{padding:0 6%}
+.device{position:relative;width:100%;border-radius:15% 15% 0 0/7.5% 7.5% 0 0;background:#0d0d0e;padding:3.5% 3.5% 0;box-shadow:0 0 0 1.5px #4a4a4e;clip-path:inset(-4px -20px 0 -20px)}
+.device::before,.device::after{content:"";position:absolute;left:-2.4%;width:1.6%;background:#2a2a2d;border-radius:3px 0 0 3px}
+.device::before{top:18%;height:9%}
+.device::after{top:31%;height:9%}
+.screen{container-type:inline-size;border-radius:12% 12% 0 0/6% 6% 0 0;overflow:hidden;background:#1f1f21;color:#fff}
+.sbar{position:relative;display:flex;justify-content:space-between;align-items:center;padding:5cqw 9cqw 3cqw 11cqw;font:600 3.8cqw/1 var(--sans)}
+.sbar svg{width:17cqw;height:auto}
+.island{position:absolute;left:50%;top:6.2cqw;transform:translate(-50%,-50%);width:26cqw;height:7.5cqw;background:#000;border-radius:999px}
+.screen img{display:block;width:100%;height:auto;border:0;margin-bottom:-14cqw}
+.shot.mob img{border:0}
+.cont{grid-column:2/13;color:var(--grey);margin:0}
+@media (max-width:900px){.shot.wide:not(.bleed),.phones,.cont{grid-column:1/13}.detail-text{grid-column:1/13}.phones{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.case .body p,.detail-text p{grid-template-columns:1fr;row-gap:4px}.case .body p > *,.detail-text p > *{grid-column:1/-1!important}}
+.mac{width:84%;margin:0 auto;padding-bottom:3%}
+.lid{position:relative;background:#0e0e10;border-radius:2.4%/3.6%;padding:1.7% 1.7% 2.3%;box-shadow:0 0 0 1.5px #3d3d42}
+.notch{position:absolute;left:50%;top:0;transform:translateX(-50%);width:10%;height:2.6%;background:#000;border-radius:0 0 6px 6px;z-index:1}
+.display{aspect-ratio:16/10;overflow:hidden;border-radius:4px;background:#1f1f21}
+.display img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;border:0!important}
+.base{position:relative;width:116%;margin-left:-8%;height:clamp(10px,1.5vw,22px);background:linear-gradient(180deg,#e2e2e5 0%,#b9b9bd 55%,#8e8e93 100%);border-radius:2px 2px 50% 50%/2px 2px 100% 100%;box-shadow:0 10px 24px rgba(0,0,0,.14)}
+.base i{position:absolute;left:50%;top:0;transform:translateX(-50%);width:13%;height:42%;background:linear-gradient(180deg,#a9a9ae,#c9c9cd);border-radius:0 0 8px 8px}
+.shot img.macshot{border:0;width:100%}
+.shot.bleed{grid-column:1/-1;margin-inline:calc(50% - 50vw)}
+.half{color:rgba(21,35,59,.3)}
+#skills .row .k{font-size:11px;line-height:1.35;padding-top:2px;text-transform:uppercase;letter-spacing:.08em;color:#c2450e}
+.dcap{grid-column:1/5;align-self:start;padding-top:16px;color:var(--ink);font-weight:400;font-size:clamp(20px,2vw,28px);line-height:1.05;letter-spacing:-.01em}
+.dcap+.detail-text{margin-top:calc(16px + clamp(20px,2vw,28px)*.107)}
+@media (max-width:900px){.dcap+.detail-text{margin-top:0}}
+@media (max-width:900px){.dcap{grid-column:1/13;padding-top:0}}
+.devfull{position:relative;width:100%;border-radius:14%/6.5%;background:#0d0d0e;padding:3.5%;box-shadow:0 0 0 1.5px #4a4a4e;box-sizing:border-box}
+.devfull::before,.devfull::after{content:"";position:absolute;left:-2.4%;width:1.6%;background:#2a2a2d;border-radius:3px 0 0 3px}
+.devfull::before{top:16%;height:8%}
+.devfull::after{top:27%;height:8%}
+.devfull .screen{position:relative;border-radius:11%/5.1%}
+.devfull .screen img{margin-bottom:0}
+.devfull .island{top:5.8cqw;width:30cqw;height:8.6cqw}
+.phones.full{padding-bottom:28px}
+.devfull img.pop{position:absolute;left:6.3%;top:17.81%;width:33.44%;height:auto;margin:0;border:0;max-width:none;z-index:2;transform:scale(1.55);transform-origin:100% 20%;border-radius:0;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14)) drop-shadow(0 22px 36px rgba(0,0,0,.22))}
+.devfull img.pop.p2{left:9.67%;top:12.54%;width:81.57%;transform:translateY(-9%) scale(1.3);transform-origin:12% 10%;filter:drop-shadow(0 8px 14px rgba(0,30,40,.16)) drop-shadow(0 26px 40px rgba(0,30,40,.26))}
+.devfull img.pop.p3{left:9.2%;top:35.03%;width:82.22%;transform:scale(1.3);transform-origin:88% 50%;filter:drop-shadow(0 8px 14px rgba(0,60,70,.22)) drop-shadow(0 26px 40px rgba(0,60,70,.3))}
+.phones.overlap figure{position:relative}
+.phones.overlap figure:nth-child(1){transform:translateX(12%)}
+.phones.overlap figure:nth-child(2){transform:translateX(9%)}
+.phones.overlap figure:nth-child(3){transform:translateX(17%);z-index:2}
+.phones.overlap figure:nth-child(4){transform:translate(-11%,6%);z-index:1}
+@media (max-width:900px){.phones.overlap figure{transform:none!important}}
+.devfull img.pop.form{left:8.3%;top:85.64%;width:84.29%;transform:none;z-index:3;filter:drop-shadow(0 26px 26px rgba(0,30,40,.2)) drop-shadow(0 10px 10px rgba(0,30,40,.08))}
+.phones .formfig{padding-bottom:62%}
+.snipbg{background:linear-gradient(180deg,#e3eeef,#d6e6e8);border-radius:28px;padding:18px 16px;display:flex;flex-direction:column;gap:14px}
+.shot.snips .snipbg img{border:0;margin:0;filter:drop-shadow(0 2px 3px rgba(0,40,50,.08)) drop-shadow(0 12px 22px rgba(0,40,50,.14))}
+.shot.mob img.calcard{border:0;margin-top:22px;width:100%;filter:drop-shadow(0 2px 4px rgba(0,40,50,.08)) drop-shadow(0 16px 30px rgba(0,40,50,.18))}
+.phones .shot.low1{margin-top:22%}
+.phones .shot.lower{margin-top:44%}
+@media (max-width:900px){.phones .shot.lower,.phones .shot.low1{margin-top:0}}
+.shot.trio{grid-column:2/13;justify-self:center;width:min(100%,900px);margin:8px 0 24px}
+.shot.trio img{border:0}
+@media (max-width:900px){.shot.trio{grid-column:1/13}}
+.phones.gap1 figure:nth-child(2){grid-column:3}
+@media (max-width:900px){.phones.gap1 figure:nth-child(2){grid-column:auto}}
+.devfull img.pop.kc{left:9.37%;width:81.68%;transform:scale(1.27);transform-origin:0 50%;filter:drop-shadow(0 6px 10px rgba(0,30,40,.12)) drop-shadow(0 20px 34px rgba(0,30,40,.2))}
+.devfull img.pop.k1{top:35.4%}.devfull img.pop.k2{top:53.9%;z-index:3}.devfull img.pop.k3{top:72.4%;z-index:4}
+.phones.full .devfull{box-shadow:0 0 0 1.5px #4a4a4e,0 2px 4px rgba(0,0,0,.06),0 18px 36px -10px rgba(0,0,0,.28),0 48px 80px -28px rgba(0,0,0,.35)}
+.phones.next{margin-top:8px;grid-column:1/-1;grid-template-columns:repeat(3,calc((91.667% - 60px)/4));justify-content:center}
+@media (max-width:900px){.phones.next{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
+.case .body p > span.t,.detail-text p > span.t{color:rgba(21,35,59,.48)}
+.case .body p > span.t em,.detail-text p > span.t em{font-style:normal;color:var(--ink)}
+.case .body p.fn > span.t{color:inherit}
+.case.crm{position:relative;align-content:start}
+.case .cover{position:absolute;left:calc(-1*var(--gut) - 20vw);top:64px;width:40vw;pointer-events:none;z-index:0}
+.case .cover img{display:block;width:100%;height:auto}
+.case.closed .body .xmore,.case.closed + .case-detail{display:none}
+.case:not(.closed) .body .tog{display:none}
+.case .body p.tog{border-top:1px solid var(--hair);padding-block:22px 0}
+.case .body p.tog > *{grid-column:1/-1;justify-self:start}
+.case-btn{font:inherit;font-size:13px;color:#fff;background:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer;transform-origin:left center;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,border-color .25s ease}
+.case-btn:hover{transform:scale(1.06);box-shadow:0 10px 24px -6px rgba(0,0,0,.35);background:var(--ink);border-color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.case-btn{transition:none}.case-btn:hover{transform:none}}
+.case-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.close-row{grid-column:2/13;margin:8px 0 0}
+@media (max-width:900px){.case .cover{display:none}.case.crm{min-height:0}.close-row{grid-column:1/13}}
+.case .body p.fn{border-top:0;padding-top:0;font-size:12px;line-height:1.4;color:rgba(21,35,59,.4)}
+.illus{grid-column:2/13;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+.illus img{display:block;width:100%;height:auto;border:0}
+@media (max-width:900px){.illus{grid-column:1/13}}
+@media (max-width:560px){.illus{grid-template-columns:1fr}}
+.ph{background:var(--mark);color:var(--grey);padding:0 3px}
+.u{border-bottom:1px solid currentColor}
+
+/* header */
+.top{padding-block:20px 0;align-items:start}
+.top .brand{grid-column:1/4;font-weight:500}
+.top nav{grid-column:7/10;display:grid;gap:2px}
+.top .ct{grid-column:11/13;justify-self:end}
+.top a:hover{color:var(--grey)}
+
+/* giant name */
+.mast{margin-top:4vw}
+.giant{font-weight:400;color:rgba(21,35,59,.1);font-size:13.4vw;display:inline-block;line-height:.8;letter-spacing:-.045em;margin:0;white-space:nowrap;text-transform:uppercase;margin-left:-.04em}
+.tag{margin-top:2.2vw;align-items:start}
+.tag .first{grid-column:1/4}
+.tag p{grid-column:7/11;margin:0;font-size:15px}
+.hero-img{margin-top:22px;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 40%;display:block;max-width:100%}
+
+/* statement blocks */
+.sec{padding-top:150px}
+.big{font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.5vw,52px);line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.big .in{display:inline-block;width:2.8em}
+.statement{grid-column:5/13}
+.rows{grid-column:5/13;margin-top:56px}
+.row{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));column-gap:20px;padding-block:18px 26px;border-bottom:1px solid var(--hair)}
+.row:first-child{border-top:0}
+.row .k{grid-column:1/3}
+.row .v{grid-column:3/6}
+.row .x{grid-column:7/9;justify-self:end;text-align:right;color:var(--grey)}
+.side{grid-column:1/3;align-self:start;margin:56px 0 0;display:grid;gap:10px}
+.side-img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 45%}
+.more{grid-column:12/13;justify-self:end;margin-top:14px}
+
+/* cases */
+.h-stagger .l2{display:block;padding-left:2.9em}
+.head-sec{grid-column:5/13}
+.intro{grid-column:9/12;margin:28px 0 0;font-size:14px}
+.cases{grid-column:1/13;margin-top:64px;border-top:1px solid var(--ink)}
+.case{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:20px;padding-block:22px 34px;border-bottom:1px solid var(--hair);align-items:start}
+.case .n{grid-column:1/2;font-variant-numeric:tabular-nums}
+.case h3 .hl{text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.16em;text-decoration-color:var(--ink)}
+.case h3{margin:0;font-weight:400;font-size:clamp(20px,2vw,28px);line-height:1.05;letter-spacing:-.01em}
+.case h3{grid-column:5/9}
+.case .meta{grid-column:9/12}
+.case .body{grid-column:5/13;display:grid;margin-top:28px}
+.case .body p,.detail-text p{margin:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));column-gap:20px;padding-block:14px 22px;border-top:1px solid var(--hair)}
+.case .body p > b,.detail-text p > b{grid-column:1/3;font-weight:400;font-size:11px;line-height:1.35;padding-top:2px;text-transform:uppercase;letter-spacing:.08em;color:#c2450e}
+.case .body p > span.t,.detail-text p > span.t{grid-column:3/7}
+.case .body p.solo > *{grid-column:3/7}
+.case .yr{grid-column:12/13;grid-row:1;justify-self:end}
+.case .n,.case h3,.case .meta{grid-row:1}
+.case .body p.solo > *{justify-self:start}
+.case.empty h3,.case.empty .meta{color:var(--grey)}
+
+/* about */
+.about{align-items:end}
+.portrait{grid-column:5/9;position:relative}
+.portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.who{grid-column:3/5;grid-row:1;align-self:end;font-size:clamp(28px,3vw,44px);line-height:.95;letter-spacing:-.02em;margin:0 0 -6px;position:relative;z-index:1;justify-self:end;transform:translateX(1.4em);mix-blend-mode:difference;color:#fff}
+.about-text{grid-column:9/12;display:grid;gap:14px;align-self:start}
+.about-text p{margin:0}
+.facts{grid-column:5/9;margin-top:0}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding-block:9px;border-bottom:1px solid var(--ink);text-transform:uppercase;font-size:11px}
+.facts dd{margin:0;text-align:right}
+
+/* contact */
+.contact{padding-bottom:40px}
+.contact .big{grid-column:1/13;font-size:clamp(34px,6.4vw,104px);line-height:.92;letter-spacing:-.035em}
+.contact .rows{grid-column:7/13;margin-top:48px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:80px 24px;align-items:end}
+.foot .arrow{font-size:28px;line-height:1}
+
+@media (max-width:900px){
+  .top nav{grid-column:5/10}
+  .tag p{grid-column:5/13}
+  .statement,.rows,.head-sec{grid-column:1/13}
+  .side{display:none}
+  .intro{grid-column:5/13}
+  .case .n{grid-column:1/2}.case h3{grid-column:2/8}.case .meta{grid-column:8/12}
+  .case .body{grid-column:1/13}
+  .portrait,.facts{grid-column:1/9}
+  .who{grid-column:1/9;grid-row:auto;justify-self:start;transform:none;mix-blend-mode:normal;color:var(--ink);margin:16px 0 0}
+  .about-text{grid-column:1/13;margin-top:28px}
+  .contact .rows{grid-column:1/13}
+  .sec{padding-top:96px}
+}
+@media (max-width:560px){
+  .top nav{display:none}
+  .top .brand{grid-column:1/9}.top .ct{grid-column:9/13}
+  .tag .first{display:none}
+  .tag p{grid-column:1/13}
+  .hero-img{aspect-ratio:4/3}
+  .row{grid-template-columns:1fr;row-gap:6px}
+  .row .k,.row .v,.row .x{grid-column:1/-1;justify-self:start;text-align:left}
+  .case h3{grid-column:2/12}.case .meta{grid-column:2/12;margin-top:8px}
+  .case .yr{display:none}
+  .portrait,.facts{grid-column:1/13}
+  .big .in{width:1em}
+  .h-stagger .l2{padding-left:1em}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.flat{grid-column:1/13;display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}.flat img{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 28px rgba(20,40,45,.08))}.flat .w{grid-column:1/-1}.flat .mock{filter:none}.flat.pair{display:flex;align-items:flex-start}.devfull img.callout{position:absolute;left:7.4%;top:9.91%;width:137.3%;max-width:none;height:auto;margin:0;border:0;z-index:3;filter:drop-shadow(0 8px 14px rgba(0,30,40,.16)) drop-shadow(0 28px 44px rgba(0,30,40,.26))}.phones.stag{margin-top:-56px;transform:translateX(.9%)}@media(max-width:900px){.phones.stag{margin-top:0;transform:none}}.detail-text p.fn.sm,.detail-text p.fn.sm .t{font-size:11px;line-height:1.4}.tabfig{grid-column:5/13;position:relative;margin:32px 0 24px}.tabfig img{display:block;width:100%;height:auto}.tabfig img.todo{position:absolute;left:44%;top:48%;width:52%;filter:drop-shadow(0 8px 14px rgba(0,30,40,.14)) drop-shadow(0 28px 44px rgba(0,30,40,.24))}@media(max-width:900px){.tabfig{grid-column:1/13}}.tabfig .tabphone{position:absolute;left:-7%;top:-6%;width:23%;z-index:2}.tabfig .tabphone .devfull{box-shadow:0 0 0 1.5px #4a4a4e,0 2px 4px rgba(0,0,0,.06),0 18px 36px -10px rgba(0,0,0,.28),0 48px 80px -28px rgba(0,0,0,.35)}.tabfig .tabphone img{position:static;width:100%;filter:none}@media(max-width:900px){.tabfig .tabphone{left:0;top:-4%;width:30%}}
+.dgfig{grid-column:5/13;margin:32px 0 24px}.dgfig img{display:block;height:auto;filter:drop-shadow(0 6px 12px rgba(0,30,40,.08)) drop-shadow(0 24px 40px rgba(0,30,40,.14))}.dgfig .dg1{width:100%}.dgfig .dg2{width:68%;margin:-9% 0 0 auto;position:relative;filter:drop-shadow(0 8px 14px rgba(0,30,40,.16)) drop-shadow(0 28px 44px rgba(0,30,40,.26))}@media(max-width:900px){.dgfig{grid-column:1/13}.dgfig .dg2{width:90%}}
+.finwrap{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:32px;margin-bottom:24px}.dshfig{grid-column:5/13;margin:0}.dshfig img{display:block;width:100%;height:auto}@media(max-width:900px){.dshfig{grid-column:1/13}}
+.phones.w4row{grid-column:5/13;grid-template-columns:repeat(2,minmax(0,37%));gap:6%;justify-content:start;align-items:start}.phones.w4row .w4c{margin-bottom:76%}.devfull img.w4cont{position:absolute;left:6.856%;top:96.87%;width:85.97%;height:auto;margin:0;border:0;max-width:none;z-index:3;border-radius:0 0 4.09% 4.09%/0 0 4.55% 4.55%;box-shadow:0 14px 20px -6px rgba(21,35,59,.12),0 34px 48px -12px rgba(21,35,59,.22)}@media(max-width:900px){.phones.w4row{grid-column:1/13;grid-template-columns:repeat(2,minmax(0,1fr))}}
+.lapfig{grid-column:5/13;margin:32px 0 24px}.lapfig img{display:block;width:100%;height:auto}@media(max-width:900px){.lapfig{grid-column:1/13}}.phones.stag figure:nth-child(1){grid-column:2}.phones.stag figure:nth-child(2){margin-top:30%}@media(max-width:900px){.phones.stag figure:nth-child(1){grid-column:auto}.phones.stag figure:nth-child(2){margin-top:22%}}.flat.pair img{min-width:0}@media(max-width:700px){.flat{grid-template-columns:1fr;gap:14px}.flat.pair{flex-direction:column}}
+.detail-text p.wide > span.t{grid-column:3/-1}.detail-text a.ilink{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-transform:none;white-space:nowrap}
+.case-sum{margin:56px 0 28px}@media (max-width:900px){.case-sum{margin:36px 0 20px}}
+
+.top a,.top a.faint{color:#c2450e;letter-spacing:.06em}.top a:hover,.top a.faint:hover{color:var(--ink)}
+.sites{grid-column:5/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 20px;margin-top:8px}.sites figure{margin:0}.sites .sw{position:relative;display:block;overflow:hidden;border-radius:6px;color:var(--ink);text-decoration:none;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}.sites img{display:block;width:100%;aspect-ratio:13/10;object-fit:cover;filter:grayscale(1);transition:filter .45s}.sites .sbar{position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:4px;background:rgba(250,248,245,.94);font-size:13px;transform:translateY(calc(100% + 14px));transition:transform .4s cubic-bezier(.2,.7,.2,1)}.sites .sh{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sites .sgo{color:#c2450e;letter-spacing:.06em;text-transform:uppercase;font-size:11px;white-space:nowrap}.sites .sw:hover,.sites .sw:focus-visible{transform:scale(1.04);box-shadow:0 18px 40px -12px rgba(21,35,59,.35),0 6px 14px -6px rgba(21,35,59,.18);z-index:2}.sites .sw:hover img,.sites .sw:focus-visible img{filter:none}.sites .sw::before,.sites .sw::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;transition:opacity .45s}.sites .sw::before{background:#15284d;mix-blend-mode:screen}.sites .sw::after{background:#d6deec;mix-blend-mode:multiply}.sites .sbar{z-index:3}.sites .sw:hover::before,.sites .sw:hover::after,.sites .sw:focus-visible::before,.sites .sw:focus-visible::after{opacity:0}.sites .sw:hover .sbar,.sites .sw:focus-visible .sbar{transform:none}.sites figcaption{margin-top:14px;font-size:13px;color:var(--grey)}@media(hover:none){.sites img{filter:none}.sites .sw::before,.sites .sw::after{opacity:0}.sites .sbar{transform:none}}@media(max-width:900px){.sites{grid-column:1/13}}@media(max-width:600px){.sites{grid-template-columns:1fr}}
+body{margin:0}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="grid top small" id="top">
+    <a class="brand faint" href="#top">Портфолио</a>
+    <nav aria-label="Разделы">
+      <a href="#skills">Навыки</a>
+      <a href="#cases">Проекты</a>
+      <a href="#process">Процесс</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+    <a class="ct faint" href="#contact">Контакты</a>
+  </header>
+
+  <section class="mast" aria-label="Алексей Сухоплеска">
+    <h1 class="giant">Suhopleska</h1>
+    <div class="grid tag">
+      <span class="first small">Alexey</span>
+      <p>Дизайн, сайты, веб-приложения, AI-инструменты</p>
+    </div>
+    <img class="hero-img" src="img/hero-bw.jpg" alt="Алексей Сухоплеска работает за ноутбуком в студии">
+  </section>
+
+  <section class="sec grid" id="skills">
+    <h2 class="big statement faint"><span class="in"></span>Технические навыки очень важны в нашей работе. Однако <span class="half">в эру нейросетей важно</span> уметь правильно <span class="half">выстроить коммуникацию с людьми</span> и правильно понимать задачу.</h2>
+    <figure class="side"><figcaption class="small">Ключевые навыки</figcaption><img class="side-img" src="img/work-bw.jpg" alt=""></figure>
+    <div class="rows">
+      <div class="row"><div class="k">Дизайн</div><div class="v">Макеты сайтов и интерфейсов, работа с графикой.</div><div class="x small">Figma<br>Photoshop</div></div>
+      <div class="row"><div class="k">Разработка</div><div class="v">Сайты и веб-приложения от макета до рабочей версии.</div><div class="x small">VS Code<br>Claude Code</div></div>
+      <div class="row"><div class="k">Нейросети</div><div class="v">Промты, генерация изображений, ускорение рутины.</div><div class="x small">Claude Code<br>Midjourney<br>Nano Banana</div></div>
+      <div class="row"><div class="k">Коммуникация</div><div class="v">Докопаться до сути и понять реальные потребности человека через грамотную коммуникацию.</div><div class="x small">Бриф<br>Обратная связь</div></div>
+    </div>
+  </section>
+
+  <section class="sec grid" id="cases">
+    <div class="head-sec">
+      <h2 class="big h-stagger">Задачи, которые<span class="l2">я решал для клиентов</span></h2>
+      <p class="sub faint">Реализованные проекты</p>
+    </div>
+    <p class="intro">По каждому проекту коротко рассказываю, какая стояла задача, что я сделал и почему выбрал именно такое решение.</p>
+    <div class="cases">
+      <article class="case crm closed">
+        <span class="n small">01</span>
+        <h3><span class="hl">CRM для детейлинг-студии</span></h3>
+        <span class="meta small">Веб-приложение<br>ATS Detailing</span>
+        <div class="body">
+          <p><b>Проблема</b><span class="t">Записи велись в таблицах и в календаре на телефоне. <em>Единой клиентской базы не было</em>, поэтому нормально работать с клиентами было сложно и неудобно.</span></p>
+          <p><b>Задача</b><span class="t">Создать <em>веб-приложение, которое работает как CRM</em>: записи, клиентская база, финансы и быстрая, удобная приёмка автомобилей.</span></p>
+          <p class="tog"><button class="case-btn open-case" type="button">Раскрыть кейс <span aria-hidden="true">↓</span></button></p>
+          <p class="xmore"><b>Решение</b><span class="t">Разработал веб-приложение с простым и понятным интерфейсом. Оно состоит из <em>семи разделов, которые закрывают все потребности студии</em>: от записи и базы клиентов до приёмки автомобилей и учёта финансов.</span></p>
+          <p class="fn xmore"><span class="t">* Имена, телефоны и госномера на скриншотах вымышлены. Реальные данные клиентов не раскрываются.</span></p>
+        </div>
+        <span class="yr small">2026</span>
+      </article>
+      <div class="case-detail">
+        <figure class="shot wide bleed">
+          <img class="macshot" src="img/crm-monitor.jpg" alt="Планировщик CRM на мониторе: календарь записей на месяц">
+        </figure>
+        <div class="dcap">Главная страница / Календарь</div>
+        <div class="detail-text">
+          <p><b>Календарь</b><span class="t">Главную страницу я сделал в виде календаря. Записи окрашены по типу услуги, так что <em>загрузку на месяц видно с одного взгляда</em>.</span></p>
+          <p><b>Список</b><span class="t">Календарь можно <em>переключить на список</em>, чтобы подробно видеть, что будет на каждой записи: автомобиль, время, услуги, пост и статус оплаты.</span></p>
+          <p><b>Периоды</b><span class="t"><em>Период легко поменять</em>, чтобы посмотреть, что было раньше или что запланировано на следующий месяц.</span></p>
+          <p><b>Форма записи</b><span class="t">Удобная и подробная форма записи клиента. Записи, само собой, <em>можно редактировать, переносить и отменять</em>.</span></p>
+        </div>
+        <div class="phones full">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm2-cal.jpg" alt="Календарь записей на телефоне"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm2-list.jpg" alt="Список записей, данные клиентов вымышленные"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm2-per.jpg" alt="Выбор периода в списке записей"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm2-form.jpg" alt="Форма новой записи"></div></div></div></figure>
+        </div>
+        <div class="dcap">База клиентов</div>
+        <div class="detail-text">
+          <p><b>Клиенты</b><span class="t">В базе видно <em>LTV каждого клиента</em>, то есть сколько он принёс студии за всё время, и количество визитов.</span></p>
+          <p><b>Поиск</b><span class="t">В базе есть поиск, через который клиента можно <em>найти по любым данным из его карточки</em>: фамилии, имени, телефону или номеру авто.</span></p>
+          <p><b>Карточка</b><span class="t">Внутри карточки хранится <em>вся история сделок с клиентом</em>: даты, услуги, суммы и статус оплаты. Отсюда же можно сразу создать новую запись.</span></p>
+          <p><b>Отменённые записи</b><span class="t">Если клиент отменил запись, она со всеми данными попадает в отдельный раздел, где можно <em>указать причину отмены</em>. Оттуда <em>запись легко восстановить</em>: достаточно выбрать новое время и параметры, и клиент снова появится в календаре.</span></p>
+        </div>
+        <div class="illus">
+          <img src="img/ill-clients.jpg" alt="База клиентов: поиск и карточки клиентов с LTV">
+          <img src="img/ill-card.jpg" alt="Карточка клиента: LTV, визиты и история обслуживания">
+        </div>
+        <div class="dcap">Приёмка автомобиля</div>
+        <div class="detail-text">
+          <p><b>Акты приёмки</b><span class="t"><em>Все акты приёмки хранятся в базе приложения</em>. По каждому видно дату, автомобиль, статус и количество отмеченных повреждений.</span></p>
+          <p><b>Схема кузова</b><span class="t">Приёмку проводят прямо в приложении. <em>Повреждения отмечаются на схеме кузова</em> по типам: скол, вмятина, царапина и другое.</span></p>
+          <p><b>Чек-лист</b><span class="t">В акте фиксируются пробег, уровень топлива, ценные вещи в салоне и состояние дисков, к нему прикрепляются фотографии. <em>Так защищены и клиент, и студия</em>.</span></p>
+          <p><b>Подпись и печать</b><span class="t">Клиент <em>расписывается в акте прямо на экране телефона</em>, а заполненную приёмку можно <em>сразу распечатать</em>.</span></p>
+        </div>
+        <div class="phones full">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-pr-l.jpg" alt="Список актов приёмки, данные клиентов вымышленные"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-pr-s.jpg" alt="Схема кузова для отметки повреждений"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-pr-c.jpg" alt="Чек-лист состояния автомобиля"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-pr-p.jpg" alt="Подпись клиента в акте приёмки"></div></div></div></figure>
+        </div>
+        <div class="dcap">Финансы</div>
+        <div class="detail-text">
+          <p><b>Доходы</b><span class="t">В разделе доходов видны <em>выручка за выбранный период, расходы, чистая прибыль</em> и количество оплаченных записей. Ниже список всех оплат: клиент, автомобиль, услуга и сумма.</span></p>
+          <p><b>Расходы</b><span class="t">Расходы разбиты по категориям: аренда, химия, зарплата и непредвиденные траты. Диаграмма сразу показывает, <em>куда уходят деньги студии</em>.</span></p>
+          <p><b>Зарплаты мастеров</b><span class="t">Зарплата мастеров <em>считается автоматически</em> как процент от каждой выполненной работы. Видно, сколько начислено каждому мастеру и сколько всего к выплате.</span></p>
+          <p><b>Начисления</b><span class="t">По каждому начислению сохраняются дата, клиент, автомобиль, услуга, сумма и доля мастера, поэтому <em>любую выплату легко проверить</em>.</span></p>
+        </div>
+        <div class="phones full">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-fin-i.jpg" alt="Доходы за период, данные клиентов вымышленные"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-fin-e.jpg" alt="Расходы по категориям, суммы вымышленные"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-fin-s.jpg" alt="Мастера и начисленная зарплата"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/crm-fin-h.jpg" alt="История начислений зарплаты, данные клиентов вымышленные"></div></div></div></figure>
+        </div>
+        <p class="big statement faint case-sum"><span class="in"></span>Приложение облегчило работу менеджера студии: <span class="half">клиенты, расписание и финансы</span> собраны в одном месте.</p>
+        <p class="close-row"><button class="case-btn close-case" type="button">Свернуть кейс <span aria-hidden="true">↑</span></button></p>
+      </div>
+      <article class="case voda closed">
+        <span class="n small">02</span>
+        <h3><span class="hl">CRM для клининговой компании</span></h3>
+        <span class="meta small">Веб-приложение<br>Voda</span>
+        <div class="body">
+          <p><b>Проблема</b><span class="t">Компания <em>давно переросла запись в календаре телефона, переписках с менеджером и таблицах Excel</em>. Пробовали подключить CRM от крупных разработчиков, но не подошли ни сроки внедрения, ни стоимость, ни функционал.</span></p>
+          <p><b>Задача</b><span class="t">Создать <em>веб-приложение для записи клиентов и ведения клиентской базы</em> с полной историей работы по каждому клиенту: суммами, заметками и фотографиями объектов. Отдельно нужен был <em>автоматический расчёт зарплаты клинеров</em>.</span></p>
+          <p class="tog"><button class="case-btn open-case" type="button">Раскрыть кейс <span aria-hidden="true">↓</span></button></p>
+          <p class="xmore"><b>Решение</b><span class="t">Разработал веб-приложение с приятным и понятным интерфейсом, в котором есть <em>весь функционал, нужный заказчику</em>.</span></p>
+        </div>
+        <span class="yr small">2026</span>
+      </article>
+      <div class="case-detail">
+        <figure class="shot wide bleed">
+          <img class="macshot" src="img/voda-monitor.jpg" alt="Дашборд CRM клининг-сервиса Вода на мониторе">
+        </figure>
+        <div class="dcap">Главная страница / Дашборд</div>
+        <div class="detail-text">
+          <p><b>Сводка</b><span class="t">На главной сразу видно <em>доход, расходы, чистую прибыль и новых клиентов</em>. Рядом с каждой цифрой стоит изменение в процентах и <em>сравнение с прошлым периодом</em>.</span></p>
+          <p><b>Период</b><span class="t">Сводку можно посмотреть <em>за этот или прошлый месяц, год или свой период</em>. Оттуда же можно быстро перейти в расписание или создать новый заказ.</span></p>
+          <p><b>Аналитика</b><span class="t">График показывает <em>доходы и расходы за последние полгода</em>. Ниже динамика роста, количество выполненных заказов и <em>средний чек</em>.</span></p>
+          <p><b>Заказы</b><span class="t">Внизу список <em>ближайших заказов на неделю вперёд</em> с суммой и статусом. Отменённые заказы <em>можно восстановить с новой датой и суммой</em>.</span></p>
+        </div>
+        <div class="phones full">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-m1.jpg" alt="Дашборд со сводкой по компании"></div><img class="pop p3" src="img/voda-pop3.png" alt=""></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-m4.jpg" alt="Выбор периода на дашборде"></div><img class="pop" src="img/voda-pop.png" alt=""></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-m2.jpg" alt="График доходов и расходов и динамика"></div><img class="pop p2" src="img/voda-pop2.png" alt=""></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-m3.jpg" alt="Ближайшие и отменённые заказы, данные клиентов вымышленные"></div></div></div></figure>
+        </div>
+        <div class="dcap">Расписание</div>
+        <div class="detail-text">
+          <p><b>Календарь</b><span class="t">Расписание собрано в <em>календарь на месяц</em>. Под каждым днём стоят точки заказов, поэтому <em>загрузку видно с одного взгляда</em>. В календаре видны и повторяющиеся заказы.</span></p>
+          <p><b>Заказы дня</b><span class="t">По нажатию на день открываются <em>все заказы на эту дату</em>: адрес, время, услуга, площадь, клиент, сумма и статус. Заказ можно отредактировать или отменить, а к дню <em>добавить заметку</em>, например «ключи у соседей».</span></p>
+          <p><b>Новый заказ</b><span class="t">Клиента можно <em>найти в базе по имени или телефону</em> или сразу завести нового. Дальше указываются дата, время, услуга, площадь и сумма, а если цена пока неизвестна, <em>диапазон цены</em>.</span></p>
+          <p><b>Клинеры</b><span class="t">В той же форме <em>назначаются клинеры на заказ</em>, добавляются заметки и фото объекта. Регулярную уборку можно <em>сразу сделать повторяющимся заказом</em>.</span></p>
+        </div>
+        <div class="phones full">
+          <figure class="shot mob low1"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-s1.jpg" alt="Календарь заказов на месяц"></div></div></div></figure>
+          <figure class="shot mob lower"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-s2.jpg" alt="Заказы на выбранный день, данные клиентов вымышленные"></div></div></div></figure>
+          <figure class="shot mob formfig"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-s3.jpg" alt="Форма нового заказа"></div><img class="pop form" src="img/voda-form.png" alt="Продолжение формы нового заказа"></div></div></figure>
+          <figure class="shot snips"><div class="snipbg">
+            <img src="img/voda-x1.png" alt="Выбор клиента и повтор последнего заказа, имя вымышленное">
+            <img src="img/voda-x2.png" alt="Выбор статуса заказа">
+            <img src="img/voda-x3.png" alt="Выбор услуги">
+            <img src="img/voda-x4.png" alt="Выбор периодичности повтора">
+          </div></figure>
+        </div>
+        <div class="dcap">База клиентов</div>
+        <div class="detail-text">
+          <p><b>Клиенты</b><span class="t">Все клиенты собраны в <em>одну базу с поиском по имени и телефону</em>. В списке сразу видно адрес объекта, последний заказ и <em>LTV, сколько клиент принёс за всё время</em>.</span></p>
+          <p><b>Карточка</b><span class="t">В карточке клиента телефон, адрес, сумма и количество заказов, фото объекта и <em>полная история заказов</em>. Любой заказ из истории можно <em>повторить в один клик</em>, отредактировать или отменить.</span></p>
+          <p><b>Новый клиент</b><span class="t">Короткая форма: имя или название объекта, телефон и адрес. Сюда же пишутся <em>особенности объекта</em>, например домофон или животные, и прикладываются фото.</span></p>
+        </div>
+        <div class="phones full gap1">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-kL.jpg" alt="Список клиентов, данные вымышленные"></div><img class="pop kc k1" src="img/voda-kc1.png" alt=""><img class="pop kc k2" src="img/voda-kc2.png" alt=""><img class="pop kc k3" src="img/voda-kc3.png" alt=""></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-kC.jpg" alt="Карточка клиента с историей заказов, данные вымышленные"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/voda-kR.jpg" alt="Форма нового клиента"></div></div></div></figure>
+        </div>
+        <div class="dcap">Финансы</div>
+        <div class="detail-text">
+          <p><b>Зарплаты</b><span class="t">Зарплата клинеров <em>считается автоматически</em>: 40% от суммы заказа, поровну между всеми, кто был на заказе. Видно число выполненных заказов и сумму к выплате.</span></p>
+          <p><b>Доходы</b><span class="t">Лента всех оплаченных заказов: дата, клиент, кто убирал и сколько пришло.</span></p>
+          <p><b>Расходы</b><span class="t">Начисления клинерам попадают в расходы сами, с пометкой «авто». Любую запись можно <em>поправить вручную</em>.</span></p>
+        </div>
+        <div class="flat">
+          <img class="w" src="img/voda-fin1.png" alt="Зарплаты клинеров, имена вымышленные">
+          <img src="img/voda-fin2.png" alt="Доходы, данные клиентов вымышленные">
+          <img src="img/voda-fin3.png" alt="Расходы, данные клиентов вымышленные">
+        </div>
+        <div class="dcap">Сайт</div>
+        <div class="detail-text">
+          <p class="wide"><b>До CRM</b><span class="t">Ранее для этой компании я сделал <em>многостраничный сайт</em> <a class="ilink" href="https://cleaning-voda.ru/" target="_blank" rel="noopener">cleaning-voda.ru&nbsp;↗</a></span></p>
+        </div>
+        <div class="flat">
+          <img class="w mock" src="img/voda-site.jpg" alt="Сайт клининговой компании Вода на ноутбуке">
+        </div>
+        <p class="big statement faint case-sum"><span class="in"></span>Менеджеру больше не нужно сверять календарь, переписки и Excel. <span class="half">Расписание, клиенты и все цифры</span> в одном окне, а <span class="half">зарплата клинеров считается автоматически</span>.</p>
+        <p class="close-row"><button class="case-btn close-case" type="button">Свернуть кейс <span aria-hidden="true">↑</span></button></p>
+      </div>
+      <article class="case ga closed">
+        <span class="n small">03</span>
+        <h3><span class="hl">CRM для компании по импорту</span></h3>
+        <span class="meta small">Веб-приложение<br>GlobalAuto</span>
+        <div class="body">
+          <p><b>Проблема</b><span class="t">Основатель компании Александр <em>много лет руководил продажами у дилера VAG</em> и работал в сетевой CRM. После проблем на авторынке в 2022 году он открыл своё дело: привоз автомобилей из Китая, Кореи, Казахстана, Киргизии и Японии. Но <em>вся работа велась в таблицах, календаре телефона и переписках</em>, единой системы не было.</span></p>
+          <p><b>Задача</b><span class="t">Создать <em>CRM-систему с учётом пользовательского опыта Александра</em>, чтобы в ней было удобно вести клиентов и сделки так, как он привык.</span></p>
+          <p class="tog"><button class="case-btn open-case" type="button">Раскрыть кейс <span aria-hidden="true">↓</span></button></p>
+          <p class="xmore"><b>Решение</b><span class="t">Провёл интервью с Александром, <em>выявил его потребности и боли</em> и на их основе собрал веб-приложение, в котором <em>вся работа с клиентами собрана в одном месте</em>.</span></p>
+        </div>
+        <span class="yr small">2026</span>
+      </article>
+      <div class="case-detail">
+        <figure class="shot wide bleed">
+          <img class="macshot" src="img/ga-mock.jpg" alt="CRM GlobalAuto на ноутбуке, планшете и телефоне">
+        </figure>
+        <div class="dcap">Дашборд</div>
+        <div class="detail-text">
+          <p><b>Показатели</b><span class="t">Сверху главные цифры: <em>сколько всего заявок, сколько в работе</em> и сколько авто передано клиентам за месяц. Тёмная карточка напоминает о звонках на сегодня.</span></p>
+          <p><b>Воронка</b><span class="t">Видно, <em>сколько сделок на каждом этапе</em>, от новой заявки до передачи машины клиенту. Рядом конверсия заявок в сделки.</span></p>
+          <p><b>Напоминания</b><span class="t">Кому нужно позвонить сегодня. <em>Просроченные звонки подсвечены красным</em>, чтобы клиент не потерялся.</span></p>
+          <p><b>Клиенты</b><span class="t">Последние обращения с моделью, бюджетом и этапом работы.</span></p>
+        </div>
+        <div class="flat">
+          <img class="w" src="img/ga-dash.png" alt="Дашборд CRM GlobalAuto, данные вымышленные">
+        </div>
+        <div class="dcap">Клиенты</div>
+        <div class="detail-text">
+          <p><b>База</b><span class="t">Все обращения попадают в одну базу. В этой нише <em>решение о покупке принимают от 1 до 6 месяцев</em>, поэтому с клиентом можно долго работать и ничего не потерять.</span></p>
+          <p><b>Карточки</b><span class="t">По каждому клиенту видно модель, бюджет, этап сделки и последнюю заметку. <em>Просроченная дата звонка подсвечена красным</em>.</span></p>
+          <p><b>Фильтры</b><span class="t">Клиентов можно отобрать <em>по этапу сделки и по источнику</em>: звонок, сайт, WhatsApp, Instagram, рекомендация или Авито.</span></p>
+          <p><b>Форма клиента</b><span class="t">Все данные по заявке, <em>напоминание перезвонить</em> через 1, 3, 7 или 14 дней и история заметок по каждому звонку и встрече.</span></p>
+        </div>
+        <div class="flat pair">
+          <img style="flex:1757 1 0" src="img/ga-cl1.png" alt="Список клиентов CRM GlobalAuto, данные вымышленные">
+          <img style="flex:642 1 0" src="img/ga-cl2.png" alt="Форма клиента, данные вымышленные">
+        </div>
+        <div class="dcap">Сделки</div>
+        <div class="detail-text">
+          <p><b>Этапы</b><span class="t">Сделки разложены по колонкам <em>от новой заявки до передачи машины клиенту</em>. Сразу видно, сколько клиентов на каждом этапе.</span></p>
+          <p><b>Карточка</b><span class="t">Имя, модель, бюджет, телефон и дата следующего контакта. <em>Просроченные даты подсвечены красным</em>.</span></p>
+          <p><b>Настройка</b><span class="t">Этапы можно <em>переименовать, удалить, поменять местами или добавить свои</em>. Первый и последний зафиксированы.</span></p>
+        </div>
+        <div class="flat">
+          <img class="w" src="img/ga-st1.png" alt="Сделки по этапам, данные вымышленные">
+        </div>
+        <div class="phones full stag">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/ga-ph1.jpg" alt="Сделки на телефоне, данные вымышленные"></div></div></div></figure>
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/ga-ph2.jpg" alt="Настройка этапов на телефоне"></div><img class="callout" src="img/ga-st2.png" alt="Настройка этапов на компьютере"></div></div></figure>
+        </div>
+        <div class="dcap">Привезённые автомобили</div>
+        <div class="detail-text">
+          <p><b>Витрина</b><span class="t">Все привезённые машины с фото, моделью, ценой и клиентом. <em>Раздел удобно показывать потенциальным клиентам</em>, которые пришли в офис.</span></p>
+          <p><b>Учёт</b><span class="t">Наглядно видно, <em>какие авто, когда и за сколько привезли</em>. По разделу удобно вести учёт и смотреть статистику.</span></p>
+          <p><b>Автоматически</b><span class="t">Карточка <em>создаётся сама, когда клиент переходит на последний этап</em> и машина выдана. Остаётся только добавить одно или несколько фото автомобиля.</span></p>
+          <p class="fn sm"><span class="t">* Имена и номера телефонов на скриншоте заменены.</span></p>
+        </div>
+        <figure class="lapfig"><img src="img/ga-lap.png" alt="Раздел привезённых автомобилей на ноутбуке"></figure>
+        <div class="dcap">Календарь</div>
+        <div class="detail-text">
+          <p><b>Месяц</b><span class="t">Все встречи, звонки и дела на месяц. <em>Цвет показывает тип события</em>: встреча, звонок клиенту или просроченный звонок.</span></p>
+          <p><b>Список дел</b><span class="t">Дела <em>на сегодня и на неделю вперёд</em>. Позвонить клиенту можно прямо из списка, в одно касание.</span></p>
+        </div>
+        <figure class="tabfig"><div class="tabphone shot mob"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/ga-ph3.jpg" alt="Календарь на телефоне, данные вымышленные"></div></div></div><img class="tabimg" src="img/ga-tab.png" alt="Календарь на планшете, данные вымышленные"></figure>
+        <div class="dcap">Договоры</div>
+        <div class="detail-text">
+          <p><b>Список</b><span class="t">Все договоры в одной таблице: <em>номер, дата, клиент, автомобиль, сумма и статус</em>.</span></p>
+          <p><b>Из заявки</b><span class="t">Новый договор <em>заполняется из заявки</em>: данные клиента и автомобиля подставляются сами, остаётся дописать паспорт.</span></p>
+          <p><b>Печать</b><span class="t">Договор <em>формируется по шаблону</em> и печатается в одно касание.</span></p>
+          <p class="fn sm"><span class="t">* Имена и номера телефонов на скриншоте заменены.</span></p>
+        </div>
+        <figure class="dgfig"><img class="dg1" src="img/ga-dg1.png" alt="Список договоров, данные вымышленные"><img class="dg2" src="img/ga-dg2.png" alt="Форма нового договора"></figure>
+        <div class="finwrap">
+        <div class="dcap">Финансы</div>
+        <div class="detail-text">
+          <p><b>Период</b><span class="t">Этот или прошлый месяц, год или <em>свой период</em>. Все цифры пересчитываются сразу.</span></p>
+          <p><b>Показатели</b><span class="t">Доходы, расходы, <em>прибыль</em> и количество операций за выбранный период.</span></p>
+          <p><b>Категории</b><span class="t">Видно, <em>откуда приходят деньги и куда уходят</em>: вознаграждение агента, доставка, таможенные платежи, комиссия банка.</span></p>
+          <p><b>Операции</b><span class="t">Каждая операция с датой, типом, категорией и суммой. <em>Доход по сделке привязан к клиенту и автомобилю</em>.</span></p>
+        </div>
+        <div class="flat"><img class="w" src="img/ga-fin.png" alt="Раздел финансов, суммы вымышленные"></div>
+        </div>
+        <p class="big statement faint case-sum"><span class="in"></span>Вместо таблиц и переписок у Александра <span class="half">одна система</span>: лиды, сделки и встречи на виду. С базой лидов можно работать и <span class="half">напоминать о себе спустя время</span>, не теряя контакты. Завершённые сделки хранятся с цифрами и фотографиями, а <span class="half">договоры составляются прямо из заявки</span>.</p>
+        <p class="close-row"><button class="case-btn close-case" type="button">Свернуть кейс <span aria-hidden="true">↑</span></button></p>
+      </div>
+      <article class="case w4 closed">
+        <span class="n small">04</span>
+        <h3><span class="hl">Веб-страница для записи клиентов</span></h3>
+        <span class="meta small">Мини веб-приложение<br>Выездной специалист</span>
+        <div class="body">
+          <p><b>Проблема</b><span class="t">У частных специалистов редко бывает чёткий порядок в записи, а базу клиентов они обычно вообще не видят. Из-за этого <em>невозможно работать со старыми клиентами</em> и регулярно напоминать о себе рассылкой.</span></p>
+          <p><b>Задача</b><span class="t">Создать <em>максимально простую и недорогую веб-страницу</em>, где можно быстро и удобно внести запись, и она сохранится внутри.</span></p>
+          <p class="tog"><button class="case-btn open-case" type="button">Раскрыть кейс <span aria-hidden="true">↓</span></button></p>
+          <p class="xmore"><b>Решение</b><span class="t">Собрал мини веб-приложение из двух страниц: <em>основная с расписанием</em> и страница с удобной формой записи. Подключил базу данных, чтобы <em>все клиенты хранились в одном месте</em>.</span></p>
+        </div>
+        <span class="yr small">2026</span>
+      </article>
+      <div class="case-detail">
+        <div class="dcap">Приложение</div>
+        <div class="detail-text">
+          <p><b>Заказы</b><span class="t">Все записи одним списком: <em>адрес, дата и время, телефон, сумма</em> и откуда пришёл клиент. Позвонить можно прямо из списка.</span></p>
+          <p><b>Сводка</b><span class="t">Сверху видно, <em>сколько заказов и на какую сумму</em> за неделю, месяц, всё время или свой период. Есть поиск по адресу и телефону.</span></p>
+          <p><b>Новый заказ</b><span class="t">Короткая форма на одном экране: <em>клиент, телефон, адрес, дата и время</em>, сумма, источник, специалист и объём работ.</span></p>
+          <p><b>История</b><span class="t">По номеру телефона подтягиваются <em>все прошлые заказы клиента</em>. Видно, когда и что делали, поэтому легко напомнить о себе.</span></p>
+          <p class="fn sm"><span class="t">* Адреса на скриншотах вымышленные, телефоны и сумма скрыты.</span></p>
+        </div>
+        <div class="phones full w4row">
+          <figure class="shot mob"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/w4-ph1.jpg" alt="Список заказов на телефоне, данные вымышленные"></div></div></div></figure>
+          <figure class="shot mob w4c"><div class="stage"><div class="devfull"><div class="screen"><i class="island"></i><img src="img/w4-ph2.png" alt="Форма заказа на телефоне, данные вымышленные"></div><img class="w4cont" src="img/w4-cont.png" alt="История заказов по номеру телефона"></div></div></figure>
+        </div>
+        <p class="big statement faint case-sum"><span class="in"></span>Теперь специалист <span class="half">видит всю базу клиентов</span> и может вернуться к любому из них, <span class="half">не теряя контакты</span>.</p>
+        <p class="close-row"><button class="case-btn close-case" type="button">Свернуть кейс <span aria-hidden="true">↑</span></button></p>
+      </div>
+      <article class="case w5">
+        <span class="n small">05</span>
+        <h3><span class="hl">Сайты</span></h3>
+        <span class="meta small">Дизайн и разработка<br>Лендинги для бизнеса</span>
+        <span class="yr small">2024–2025</span>
+      </article>
+      <div class="case-detail">
+        <div class="sites"><figure><a class="sw" href="https://cleaning-voda.ru/" target="_blank" rel="noopener"><img src="img/site1.jpg" alt="Сайт клининговой компании ВОДА" loading="lazy"><span class="sbar"><span class="sh">cleaning-voda.ru</span><span class="sgo">Перейти <span aria-hidden="true">↗</span></span></span></a><figcaption>Клининговая компания «ВОДА»</figcaption></figure><figure><a class="sw" href="https://frogff.ru/" target="_blank" rel="noopener"><img src="img/site2.jpg" alt="Сайт фулфилмента Frog FulFillment" loading="lazy"><span class="sbar"><span class="sh">frogff.ru</span><span class="sgo">Перейти <span aria-hidden="true">↗</span></span></span></a><figcaption>Фулфилмент Frog FulFillment</figcaption></figure><figure><a class="sw" href="https://akademiki74.ru/" target="_blank" rel="noopener"><img src="img/site3.jpg" alt="Сайт детской футбольной школы Академики" loading="lazy"><span class="sbar"><span class="sh">akademiki74.ru</span><span class="sgo">Перейти <span aria-hidden="true">↗</span></span></span></a><figcaption>Детская футбольная школа «Академики»</figcaption></figure><figure><a class="sw" href="https://nevolyashka74.ru/" target="_blank" rel="noopener"><img src="img/site4.jpg" alt="Сайт производителя лезвий для коньков Неволяшка" loading="lazy"><span class="sbar"><span class="sh">nevolyashka74.ru</span><span class="sgo">Перейти <span aria-hidden="true">↗</span></span></span></a><figcaption>Лезвия для хоккейных коньков «Неволяшка»</figcaption></figure><figure><a class="sw" href="https://clean-prime.ru/" target="_blank" rel="noopener"><img src="img/site5.jpg" alt="Сайт клининговой компании Центр Чистоты" loading="lazy"><span class="sbar"><span class="sh">clean-prime.ru</span><span class="sgo">Перейти <span aria-hidden="true">↗</span></span></span></a><figcaption>Клининговая компания «Центр Чистоты»</figcaption></figure><figure><a class="sw" href="https://uborka-72.ru/" target="_blank" rel="noopener"><img src="img/site6.jpg" alt="Сайт клининговой компании Кристалл Clean" loading="lazy"><span class="sbar"><span class="sh">uborka-72.ru</span><span class="sgo">Перейти <span aria-hidden="true">↗</span></span></span></a><figcaption>Клининговая компания «Кристалл Clean»</figcaption></figure></div>
+      </div>
+    
+    </div>
+  </section>
+
+  <section class="sec grid" id="process">
+    <h2 class="big statement"><span class="in"></span>Объясняю каждый этап простым языком. Так проще и заказчику, и команде.</h2>
+    <div class="rows">
+      <div class="row"><div class="k">01 Задача</div><div class="v">Разбираюсь, что за бизнес, кто клиенты и чего должен добиться сайт.</div><div class="x small">Бриф</div></div>
+      <div class="row"><div class="k">02 Структура</div><div class="v">Какие блоки нужны и в каком порядке.</div><div class="x small">Прототип</div></div>
+      <div class="row"><div class="k">03 Дизайн</div><div class="v">Макеты и графика.</div><div class="x small">Figma<br>Photoshop</div></div>
+      <div class="row"><div class="k">04 Разработка</div><div class="v">Код, проверка на телефоне и компьютере.</div><div class="x small">VS Code<br>Claude Code</div></div>
+      <div class="row"><div class="k">05 Запуск</div><div class="v">Публикую и проверяю, что всё работает. <span class="ph">[поддержка после запуска?]</span></div><div class="x small">Релиз</div></div>
+    </div>
+  </section>
+
+  <section class="sec grid" id="about">
+    <div class="head-sec" style="margin-bottom:64px">
+      <h2 class="big h-stagger">Смотрю на сайт<span class="l2">глазами владельца</span></h2>
+    </div>
+    <div class="grid about" style="grid-column:1/13">
+      <p class="who">Алексей<br>Сухоплеска</p>
+      <div class="portrait"><img src="img/face.jpg" alt="Портрет Алексея Сухоплески"></div>
+      <div class="about-text">
+        <p>У меня есть своё небольшое дело, химчистка мебели. Поэтому я знаю, каково это, когда сайт должен приносить клиентов, а не просто красиво выглядеть.</p>
+        <p>В мае, после операции на мениске, купил обучение по Claude Code и начал разбираться. Первым проектом стало приложение для клиентской базы моей химчистки.</p>
+        <p>Нейросети помогают делать быстрее, но понимать задачу всё равно должен человек.</p>
+      </div>
+    </div>
+    <dl class="facts" style="margin-top:0">
+      <div><dt>Опыт</dt><dd><span class="ph">[лет]</span></dd></div>
+      <div><dt>Город</dt><dd><span class="ph">[город · удалёнка / офис]</span></dd></div>
+      <div><dt>Ищу</dt><dd><span class="ph">[студия / команда]</span></dd></div>
+      <div><dt>Резюме</dt><dd><span class="ph">[ссылка на PDF]</span></dd></div>
+    </dl>
+  </section>
+
+  <section class="sec grid" id="experience">
+    <div class="head-sec"><h2 class="big">Опыт</h2></div>
+    <div class="rows">
+      <div class="row"><div class="k"><span class="ph">[20XX – сейчас]</span></div><div class="v">Фриланс, сайты и веб-приложения для экспертов и малого бизнеса.</div><div class="x small">Фриланс</div></div>
+      <div class="row"><div class="k">2026</div><div class="v">Своё веб-приложение на Claude Code: CRM для химчистки мебели.</div><div class="x small">Свой проект</div></div>
+      <div class="row"><div class="k"><span class="ph">[годы]</span></div><div class="v"><span class="ph">[Место работы или обучение]</span></div><div class="x small"><span class="ph">[роль]</span></div></div>
+    </div>
+  </section>
+
+  <section class="sec grid" id="reviews">
+    <div class="head-sec"><h2 class="big h-stagger">Отзывы<span class="l2">клиентов</span></h2></div>
+    <div class="rows">
+      <div class="row"><div class="k"><span class="ph">[Имя, компания]</span></div><div class="v"><span class="ph">[Текст отзыва]</span></div><div class="x small"><span class="ph">[проект]</span></div></div>
+      <div class="row"><div class="k"><span class="ph">[Имя, компания]</span></div><div class="v"><span class="ph">[Текст отзыва]</span></div><div class="x small"><span class="ph">[проект]</span></div></div>
+    </div>
+  </section>
+
+  <section class="sec grid contact" id="contact">
+    <h2 class="big">Если я подхожу вам по задачам, напишите)</h2>
+    <div class="rows">
+      <div class="row"><div class="k">Telegram</div><div class="v"><span class="ph">[@username]</span></div><div class="x small">&nbsp;</div></div>
+      <div class="row"><div class="k">Email</div><div class="v"><span class="ph">[почта]</span></div><div class="x small">&nbsp;</div></div>
+      <div class="row"><div class="k">hh.ru</div><div class="v"><span class="ph">[ссылка]</span></div><div class="x small">&nbsp;</div></div>
+    </div>
+  </section>
+
+  <footer class="foot small">
+    <span>© 2026 Алексей Сухоплеска</span>
+    <a class="arrow" href="#top" aria-label="Наверх">↑</a>
+  </footer>
+</div>
+<script>
+(function(){
+  var g=document.querySelector('.giant'); if(!g) return;
+  function fit(){ g.style.fontSize='100px'; var w=g.parentElement.clientWidth; var s=g.scrollWidth; if(s) g.style.fontSize=(100*w/s)+'px'; }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+document.querySelectorAll('.open-case').forEach(function(b){b.addEventListener('click',function(){b.closest('.case').classList.remove('closed')})});
+document.querySelectorAll('.close-case').forEach(function(b){b.addEventListener('click',function(){var a=b.closest('.case-detail').previousElementSibling;a.classList.add('closed');a.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+
+</body>
+</html>
