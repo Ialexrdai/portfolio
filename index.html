@@ -56,7 +56,7 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .shot img.macshot{border:0;width:100%}
 .shot.bleed{grid-column:1/-1;margin-inline:calc(50% - 50vw)}
 .half{color:rgba(21,35,59,.3)}
-#skills .row .k,#process .row .k{font-size:11px;line-height:1.35;padding-top:2px;text-transform:uppercase;letter-spacing:.08em;color:#c2450e}
+#skills .row .k,#process .row .k,.path .row .k{font-size:11px;line-height:1.35;padding-top:2px;text-transform:uppercase;letter-spacing:.08em;color:#c2450e}
 .dcap{grid-column:1/5;align-self:start;padding-top:16px;color:var(--ink);font-weight:400;font-size:clamp(20px,2vw,28px);line-height:1.05;letter-spacing:-.01em}
 .dcap+.detail-text{margin-top:calc(16px + clamp(20px,2vw,28px)*.107)}
 @media (max-width:900px){.dcap+.detail-text{margin-top:0}}
@@ -178,6 +178,8 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .who{grid-column:3/5;grid-row:1;align-self:end;font-size:clamp(28px,3vw,44px);line-height:.95;letter-spacing:-.02em;margin:0 0 -6px;position:relative;z-index:1;justify-self:end;transform:translateX(1.4em);mix-blend-mode:difference;color:#fff}
 .about-text{grid-column:9/12;display:grid;gap:14px;align-self:start}
 .about-text p{margin:0}
+.sub20{display:block;color:rgba(21,35,59,.2)}
+.rows.path{margin:0 0 72px}.path .row .v{grid-column:3/9}
 .facts{grid-column:5/9;margin-top:0}
 .facts div{display:flex;justify-content:space-between;gap:16px;padding-block:9px;border-bottom:1px solid var(--ink);text-transform:uppercase;font-size:11px}
 .facts dd{margin:0;text-align:right}
@@ -562,17 +564,18 @@ body{margin:0}
 
   <section class="sec grid" id="about">
     <div class="head-sec" style="margin-bottom:64px">
-      <h2 class="big h-stagger">Мой<span class="l2">путь</span></h2>
+      <h2 class="big">Мой путь<span class="sub20">или просто обо мне</span></h2>
+    </div>
+    <div class="rows path">
+      <div class="row"><div class="k">2021 Учёба</div><div class="v">Окончил ЮУрГУ, Высшую школу электроники и компьютерных наук. По профессии работать не пошёл и стал фотографом. Тогда глубоко изучил Photoshop, обработку фотографий, работу со светом и цветом и уже начал тренировать насмотренность.</div></div>
+      <div class="row"><div class="k">2022 Своё дело</div><div class="v">Открыл небольшое дело, выездную химчистку мягкой мебели. Научился работать с людьми, отрабатывать возражения и понимать боли клиентов. Вёл заявки из ВКонтакте и с сайта, который сам собрал на шаблоне. Так у меня появилась база в маркетинге.</div></div>
+      <div class="row"><div class="k">2023 UX/UI-дизайн</div><div class="v">Прошёл годовое обучение по UX/UI-дизайну, а в 2024 уже делал первые сайты, которые приносили заказчикам заявки. С тех пор создал больше 10 проектов. Для каждого глубоко анализировал нишу в городе клиента и обзванивал его покупателей, чтобы найти сильные стороны бизнеса и написать точные тексты.</div></div>
+      <div class="row"><div class="k">2026 Вайбкодинг</div><div class="v">На волне вайбкодинга начал осваивать это направление. Первым сделал веб-приложение для своего бизнеса и увидел, какие проблемы коллег по нише оно может решить. И начал их решать.</div></div>
     </div>
     <div class="grid about" style="grid-column:1/13">
       <p class="who">Алексей<br>Сухоплеска</p>
       <div class="portrait"><img src="img/face.jpg" alt="Портрет Алексея Сухоплески"></div>
-      <div class="about-text">
-        <p>В 2021 году окончил ЮУрГУ, Высшую школу электроники и компьютерных наук. По профессии работать не пошёл и стал фотографом. Тогда глубоко изучил Photoshop, обработку фотографий, работу со светом и цветом и уже начал тренировать насмотренность.</p>
-        <p>В 2022 году открыл своё небольшое дело, выездную химчистку мягкой мебели. Научился работать с людьми, отрабатывать возражения и понимать боли клиентов. Вёл заявки из ВКонтакте и с сайта, который сам собрал на шаблоне. Так у меня появилась база в маркетинге.</p>
-        <p>В 2023 году прошёл годовое обучение по UX/UI-дизайну, а в 2024 уже делал первые сайты, которые приносили заказчикам заявки. С тех пор создал больше 10 проектов. Для каждого глубоко анализировал нишу в городе клиента и обзванивал его покупателей, чтобы найти сильные стороны бизнеса и написать точные тексты.</p>
-        <p>В 2026 году, на волне вайбкодинга, начал осваивать это направление. Первым сделал веб-приложение для своего бизнеса и увидел, какие проблемы коллег по нише оно может решить. И начал их решать.</p>
-      </div>
+
     </div>
     <dl class="facts" style="margin-top:0">
       <div><dt>Опыт</dt><dd>3 года</dd></div>
