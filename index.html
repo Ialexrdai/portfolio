@@ -236,6 +236,77 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .top a,.top a.faint{color:#c2450e;letter-spacing:.06em}.top a:hover,.top a.faint:hover{color:var(--ink)}
 .sites{grid-column:5/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 20px;margin-top:8px}.sites figure{margin:0}.sites .sw{position:relative;display:block;overflow:hidden;border-radius:6px;color:var(--ink);text-decoration:none;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}.sites img{display:block;width:100%;aspect-ratio:13/10;object-fit:cover;filter:grayscale(1);transition:filter .45s}.sites .sbar{position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:4px;background:rgba(250,248,245,.94);font-size:13px;transform:translateY(calc(100% + 14px));transition:transform .4s cubic-bezier(.2,.7,.2,1)}.sites .sh{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sites .sgo{color:#c2450e;letter-spacing:.06em;text-transform:uppercase;font-size:11px;white-space:nowrap}.sites .sw:hover,.sites .sw:focus-visible{transform:scale(1.04);box-shadow:0 18px 40px -12px rgba(21,35,59,.35),0 6px 14px -6px rgba(21,35,59,.18);z-index:2}.sites .sw:hover img,.sites .sw:focus-visible img{filter:none}.sites .sw::before,.sites .sw::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;transition:opacity .45s}.sites .sw::before{background:#15284d;mix-blend-mode:screen}.sites .sw::after{background:#d6deec;mix-blend-mode:multiply}.sites .sbar{z-index:3}.sites .sw:hover::before,.sites .sw:hover::after,.sites .sw:focus-visible::before,.sites .sw:focus-visible::after{opacity:0}.sites .sw:hover .sbar,.sites .sw:focus-visible .sbar{transform:none}.sites figcaption{margin-top:14px;font-size:13px;color:var(--grey)}@media(hover:none){.sites img{filter:none}.sites .sw::before,.sites .sw::after{opacity:0}.sites .sbar{transform:none}}@media(max-width:900px){.sites{grid-column:1/13}}@media(max-width:600px){.sites{grid-template-columns:1fr}}
 .case.w5{border-bottom:0;scroll-margin-top:32px}
+
+/* mobile: burger + readability */
+.burger,.mnav{display:none}
+@media (max-width:900px){
+  .top nav,.top .ct{display:none}
+  .top .brand{grid-column:1/9}
+  .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;position:fixed;top:12px;right:max(12px,env(safe-area-inset-right));z-index:60;width:48px;height:48px;border:0;border-radius:999px;background:var(--ink);cursor:pointer;box-shadow:0 6px 18px -6px rgba(21,35,59,.45);-webkit-tap-highlight-color:transparent}
+  .burger i{display:block;width:20px;height:1.5px;background:#fff;border-radius:2px;transition:transform .3s ease}
+  .menu-open .burger i:first-child{transform:translateY(3.75px) rotate(45deg)}
+  .menu-open .burger i:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+  .mnav{display:flex;flex-direction:column;position:fixed;inset:0;z-index:55;background:var(--white);padding:96px var(--gut) 40px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s ease,transform .3s ease,visibility 0s .3s}
+  .menu-open .mnav{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s ease}
+  .menu-open{overflow:hidden}
+  .mnav > a{font-size:clamp(30px,9vw,44px);line-height:1;text-transform:uppercase;letter-spacing:-.02em;padding-block:14px;border-bottom:1px solid var(--hair);color:var(--ink)}
+  .mnav > a:active{color:#c2450e}
+  .mnav-tg{margin:auto 0 0;padding-top:32px;font-size:16px}
+  .mnav-tg a{color:#c2450e}
+  section[id],article[id]{scroll-margin-top:24px}
+}
+@media (max-width:560px){
+  body{font-size:16px;line-height:1.5}
+  .page{overflow-x:clip}
+  .mast{margin-top:72px}
+  .small{font-size:12px}
+  .page{padding-inline:16px}
+  .top{padding-top:26px}
+  .tag p{font-size:17px}
+  .sec{padding-top:80px}
+  .big{font-size:clamp(26px,7.4vw,34px);line-height:1.04}
+  .rows{margin-top:36px}
+  .row{padding-block:16px 20px}
+  #skills .row .k,#process .row .k,.path .row .k,.revs .row .k,.case .body p > b,.detail-text p > b{font-size:12px}
+  .row .x{font-size:12px}
+  .path .row .v,.revs .row .v{grid-column:1/-1}
+  .rows.path{margin-bottom:48px}
+  .intro{grid-column:1/13;font-size:16px;margin-top:20px}
+  .cases{margin-top:40px}
+  .case{padding-block:20px 28px;row-gap:6px}
+  .case .n{grid-column:1/-1;grid-row:1}
+  .case h3{grid-column:1/-1;grid-row:2;font-size:24px;line-height:1.1}
+  .case .meta{grid-column:1/-1;grid-row:3;margin-top:4px;color:var(--grey)}
+  .case .body{margin-top:16px}
+  .case .body p,.detail-text p{padding-block:14px 18px}
+  .case .body p.fn,.detail-text p.fn.sm,.detail-text p.fn.sm .t{font-size:13px}
+  .case .body p.tog{padding-top:18px}
+  .case-btn{font-size:15px;padding:13px 22px}
+  .dcap{font-size:24px}
+  .case-detail{row-gap:24px;padding-bottom:36px}
+  .phones{gap:12px}
+  .sites{gap:28px}
+  .sites figcaption{font-size:14px}
+  .facts div{font-size:12px;padding-block:12px}
+  .contact .big{font-size:clamp(32px,10vw,44px)}
+  .contact .rows .row .k{font-size:14px;color:var(--grey)}
+  .contact .rows .row .v{font-size:18px}
+  .contact .rows .row .x{display:none}
+  .revshots{gap:18px;margin-top:36px}
+  .rev-all{margin-top:28px}
+  .fullph+.sec{padding-top:72px}
+  .who{font-size:32px}
+}
+.revm{display:none}
+@media (max-width:560px){
+  .revshots{display:none}
+  .revm{display:grid;gap:14px;grid-column:1/13;margin-top:32px}
+  .revm .row{display:block;background:#fff;border:0;border-radius:10px;padding:18px 18px 20px;box-shadow:0 1px 2px rgba(21,35,59,.06),0 10px 30px -14px rgba(21,35,59,.25)}
+  .revm .row .k{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:8px}
+  .revm .row .v p{margin:0;font-size:15px;line-height:1.5}
+  .revm .row .v p+p{margin-top:10px}
+  .contact .big{line-height:1}
+}
 body{margin:0}
 </style>
 </head>
@@ -253,6 +324,17 @@ body{margin:0}
     </nav>
     <a class="ct faint" href="#contact">Контакты</a>
   </header>
+  <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><i></i><i></i></button>
+  <nav class="mnav" id="mnav" aria-label="Меню">
+    <a href="#cases">Разработка</a>
+    <a href="#sites">Сайты</a>
+    <a href="#skills">Навыки</a>
+    <a href="#process">Процесс</a>
+    <a href="#about">Обо мне</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contact">Контакты</a>
+    <p class="mnav-tg"><a href="https://t.me/ialexrd" target="_blank" rel="noopener">Telegram @ialexrd ↗</a></p>
+  </nav>
 
   <section class="mast" aria-label="Алексей Сухоплеска">
     <h1 class="giant">Suhopleska</h1>
@@ -601,6 +683,13 @@ body{margin:0}
       <img src="img/rev4.png" alt="Отзыв ВКонтакте: Александр Черепанов" loading="lazy">
       <img src="img/rev5.png" alt="Отзыв ВКонтакте: Артём Захаров" loading="lazy">
     </div>
+    <div class="revm">
+      <div class="row"><div class="k">Светлана Пермякова</div><div class="v"><p>Спасибо Алексею за проделанную работу! С ним было работать легко с первой минуты. Он выслушал все мои пожелания и учёл их при создании сайта. Взял контакты моих клиентов и опросил их для выявления моих сильных сторон, что помогло сформировать УТП на сайте. В первый месяц работы мне удалось закрыть клиента на 90 тысяч рублей, сайт сразу окупился.</p></div></div>
+      <div class="row"><div class="k">Антон Докучаев</div><div class="v"><p>Обратились к Алексею по совету знакомых. Нужно было сделать сайт для проката мототехники, чтобы была вся нужная информация и при этом сайт был простым и лёгким для просмотра. Сделали в короткие сроки. По цене недорого. Стоимость сайта окупили за 5 дней работы.</p><p>Самый главный момент: зимой у нас снегоходы, а летом мотоциклы и квадроциклы. Алексей сделал 2 вариации сайта по сезонам, которые переключаются одной кнопкой. Теперь люди сами звонят или переходят в мессенджер. Также могут оставлять заявку, чтобы мы им перезвонили. Такие заявки приходят в ТГ мгновенно, что позволяет быстро связаться с заказчиком и забронировать ему поездку.</p></div></div>
+      <div class="row"><div class="k">Ксения Шабрина</div><div class="v"><p>Обратилась к Алексею за сайтом для своей клининговой компании. С первого дня и до самого запуска он держал меня в курсе всех этапов: всё подробно объяснял, показывал промежуточные результаты, советовал, как лучше сделать. Чувствовалось, что человек болеет за проект, а не просто «рисует кнопки».</p><p>Помимо самого сайта, Алексей сделал мне листовки и визитки в едином стиле, получилось очень достойно. Также он помог найти грамотного директолога и запустить рекламу. Результат не заставил себя ждать: пошли первые клиенты.</p><p>Профессионал, который ведёт проект «под ключ» и говорит с заказчиком на человеческом языке. Рекомендую к его услугам.</p></div></div>
+      <div class="row"><div class="k">Александр Черепанов</div><div class="v"><p>Обратился к Алексею по рекомендации, создать сайт для детейлинг-студии, остался очень доволен и впечатлён, насколько он проникся моей специализацией. Сначала составил план и сделали структуру сайта, проработали все моменты, каждую мелочь, важную для меня и моей компании. Он максимально учёл все пожелания, а также дал рекомендации со своей стороны, как лучше сделать те или иные моменты.</p><p>Спасибо большое за проделанную работу, и конечно моя личная рекомендация: обращайтесь именно к нему, ведь он умеет слушать, что нужно именно вам!</p></div></div>
+      <div class="row"><div class="k">Артём Захаров</div><div class="v"><p>Заказывали сайт для нашей футбольной школы «Академики» в Челябинске у Алексея. Остались очень довольны: важные решения обсуждали вместе, по мелочам не дёргал, делал самостоятельно и грамотно. В итоге сайт получился именно такой, какой нам и был нужен.</p><p>Рекламу ещё не запускали, но сайт уже разметили на 2ГИС, оттуда идёт хороший трафик, заявки приходят в телеграм и ВК. Многим родителям удобнее сначала зайти на сайт и познакомиться со школой, посмотреть цены, методику тренировок, историю школы, узнать о тренерах и руководстве.</p><p>Алексея рекомендуем, надёжный специалист, с которым приятно работать.</p></div></div>
+    </div>
     <p class="rev-all"><a class="case-btn" href="https://vk.ru/topic-223407542_55926557" target="_blank" rel="noopener">Все отзывы ВКонтакте <span aria-hidden="true">↗</span></a></p>
   </section>
 
@@ -628,6 +717,13 @@ body{margin:0}
 <script>
 document.querySelectorAll('.open-case').forEach(function(b){b.addEventListener('click',function(){b.closest('.case').classList.remove('closed')})});
 document.querySelectorAll('.close-case').forEach(function(b){b.addEventListener('click',function(){var a=b.closest('.case-detail').previousElementSibling;a.classList.add('closed');a.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+<script>
+(function(){var b=document.querySelector('.burger'),n=document.getElementById('mnav'),r=document.documentElement;if(!b)return;
+function set(o){r.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o?'true':'false')}
+b.addEventListener('click',function(){set(!r.classList.contains('menu-open'))});
+n.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});})();
 </script>
 
 </body>
