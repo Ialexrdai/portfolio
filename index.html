@@ -307,6 +307,9 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
   .revm .row .v p+p{margin-top:10px}
   .contact .big{line-height:1}
 }
+.tgbtn{position:fixed;top:14px;text-transform:none;letter-spacing:0!important;font-size:14px!important;right:var(--gut);z-index:50;font-size:13px;line-height:1;color:#fff!important;background:#c2450e;border-radius:999px;padding:13px 22px;box-shadow:0 8px 22px -8px rgba(194,69,14,.55);transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease}
+.tgbtn:hover{transform:scale(1.05);background:#a93b0b;box-shadow:0 12px 28px -8px rgba(194,69,14,.6)}
+@media (max-width:900px){.tgbtn{display:none}}
 body{margin:0}
 </style>
 </head>
@@ -321,8 +324,9 @@ body{margin:0}
       <a href="#sites">Сайты</a>
       <a href="#process">Процесс</a>
       <a href="#about">Обо мне</a>
+      <a href="#contact">Контакты</a>
     </nav>
-    <a class="ct faint" href="#contact">Контакты</a>
+    <a class="tgbtn" href="https://t.me/ialexrd" target="_blank" rel="noopener">Написать в Telegram <span aria-hidden="true">↗</span></a>
   </header>
   <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><i></i><i></i></button>
   <nav class="mnav" id="mnav" aria-label="Меню">
