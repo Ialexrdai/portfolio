@@ -310,6 +310,14 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .tgbtn{position:fixed;top:14px;text-transform:none;letter-spacing:0!important;font-size:12px!important;right:var(--gut);z-index:50;font-size:13px;line-height:1;color:#fff!important;background:#c2450e;border-radius:999px;padding:9px 16px;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease}
 .tgbtn:hover{transform:scale(1.05);background:#a93b0b}
 @media (max-width:900px){.tgbtn{display:none}}
+.tgwide,.totop{display:none}
+@media (max-width:900px){
+  .tgwide{display:block;margin-top:16px;text-align:center;font-size:16px;line-height:1;color:#fff;background:#c2450e;border-radius:999px;padding:17px 20px;-webkit-tap-highlight-color:transparent}
+  .tgwide:active{background:#a93b0b}
+  .totop{display:flex;align-items:center;justify-content:center;position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:54;width:48px;height:48px;border-radius:999px;background:var(--ink);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease,visibility 0s .3s;-webkit-tap-highlight-color:transparent}
+  .totop.show{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s ease}
+  .menu-open .totop{opacity:0;visibility:hidden}
+}
 body{margin:0}
 </style>
 </head>
@@ -328,6 +336,7 @@ body{margin:0}
     </nav>
     <a class="tgbtn" href="https://t.me/ialexrd" target="_blank" rel="noopener">Написать в Telegram <span aria-hidden="true">↗</span></a>
   </header>
+  <a class="totop" href="#top" aria-label="Наверх"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
   <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><i></i><i></i></button>
   <nav class="mnav" id="mnav" aria-label="Меню">
     <a href="#cases">Разработка</a>
@@ -347,6 +356,7 @@ body{margin:0}
       <p>Дизайн, сайты, веб-приложения, AI-инструменты</p>
     </div>
     <img class="hero-img" src="img/hero-bw.jpg" alt="Алексей Сухоплеска работает за ноутбуком в студии">
+    <a class="tgwide" href="https://t.me/ialexrd" target="_blank" rel="noopener">Написать в Telegram <span aria-hidden="true">↗</span></a>
   </section>
 
   <section class="sec grid" id="skills">
@@ -728,6 +738,12 @@ function set(o){r.classList.toggle('menu-open',o);b.setAttribute('aria-expanded'
 b.addEventListener('click',function(){set(!r.classList.contains('menu-open'))});
 n.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){set(false)})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});})();
+</script>
+<script>
+(function(){var t=document.querySelector('.totop');if(!t)return;var on=false;
+function chk(){var v=window.scrollY>window.innerHeight*.8;if(v!==on){on=v;t.classList.toggle('show',v)}}
+window.addEventListener('scroll',chk,{passive:true});chk();
+t.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});})();
 </script>
 
 </body>
