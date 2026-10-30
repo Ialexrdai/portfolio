@@ -56,11 +56,10 @@ p{margin:0}
 .btn.orange .ar{background:#fff;color:var(--accent)}
 
 /* ---------- HERO ---------- */
-.hero-shell{padding-top:12px}
-.hero{position:relative;overflow:hidden;border-radius:0 0 var(--r-xl) var(--r-xl);min-height:680px;color:var(--on-dark);
+.hero-shell{padding:10px max(10px,env(safe-area-inset-right,0px)) 0 max(10px,env(safe-area-inset-left,0px))}
+.hero{position:relative;overflow:hidden;border-radius:var(--r-xl);min-height:min(820px,calc(100vh - 20px));color:var(--on-dark);
   background:radial-gradient(90% 110% at 72% 18%,#ff7a2e 0%,#e2500f 24%,#6d2309 52%,#1d0f09 78%,#120c09 100%);
   isolation:isolate;display:flex;flex-direction:column}
-@media (min-width:1264px){.hero{border-radius:var(--r-xl)}}
 .hero-ph{position:absolute;right:-4%;top:0;height:100%;width:78%;object-fit:cover;object-position:46% 22%;mix-blend-mode:multiply;filter:contrast(1.15) brightness(1.04);z-index:-1}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,12,9,.75) 0%,rgba(18,12,9,0) 46%),linear-gradient(0deg,rgba(18,12,9,.85) 0%,rgba(18,12,9,0) 34%)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px clamp(20px,3.4vw,44px)}
@@ -71,7 +70,7 @@ p{margin:0}
 .nav ul a:hover{opacity:1;color:#ffb48f}
 .hero-body{flex:1;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:20px clamp(20px,3.4vw,44px) 40px}
 .hi{color:var(--accent);font-weight:600;font-size:20px;margin-bottom:10px;filter:brightness(1.15)}
-.hero h1{font-size:clamp(52px,9vw,124px);line-height:.92;letter-spacing:-.05em;font-weight:800}
+.hero h1{font-size:clamp(46px,8.4vw,136px);line-height:.92;letter-spacing:-.05em;font-weight:800}
 .hero h1 span{display:block}
 .hero-side{max-width:290px;align-self:end;margin-bottom:40px}
 .hero-side b{display:block;font-size:20px;line-height:1.25;font-weight:600;margin-bottom:12px}
@@ -89,11 +88,6 @@ p{margin:0}
   .hero-tags{grid-template-columns:1fr 1fr}
 }
 
-/* trust strip */
-.trust{display:flex;align-items:center;gap:20px 44px;flex-wrap:wrap;padding-block:36px;border-bottom:1px solid var(--line)}
-.trust small{font-size:13px;line-height:1.3;color:var(--muted);max-width:140px}
-.trust span{font-weight:700;font-size:19px;letter-spacing:-.02em;color:#3b3531;display:inline-flex;align-items:center;gap:8px}
-.trust span::before{content:"";width:14px;height:14px;border-radius:50%;border:3px solid currentColor}
 
 /* why me + images */
 .why-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -256,7 +250,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
 <body>
 
 
-<div class="wrap hero-shell">
+<div class="hero-shell">
   <header class="hero" id="top">
     <img class="hero-ph" src="img/hero-bw.jpg" alt="Алексей Сухоплеска с ноутбуком">
     <nav class="nav" aria-label="Основное меню">
@@ -272,29 +266,22 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     </nav>
     <div class="hero-body">
       <div class="reveal">
-        <p class="hi">Привет, я Алексей</p>
-        <h1><span>AI веб-</span><span>дизайнер</span></h1>
+        <p class="hi">AI веб-дизайнер</p>
+        <h1><span>Алексей</span><span>Сухоплеска</span></h1>
       </div>
       <div class="hero-side reveal d2">
         <b>Нейросети пишут код. Я понимаю задачу и людей.</b>
-        <p>Делаю сайты, которые приносят заявки, и CRM для клининга и выездных служб. Сам вёл такой бизнес и знаю его изнутри.</p>
+        <p>Делаю сайты, которые приносят заявки, и CRM для клининга и выездных служб.</p>
         <a class="btn orange" href="https://t.me/ialexrd" target="_blank" rel="noopener">Обсудить задачу <span class="ar" aria-hidden="true">→</span></a>
       </div>
     </div>
     <ul class="hero-tags reveal d3">
-      <li><i>#01</i>CRM-системы</li>
-      <li><i>#02</i>Сайты с заявками</li>
-      <li><i>#03</i>Дизайн и инфографика</li>
+      <li><i>#01</i>CRM для микробизнеса</li>
+      <li><i>#02</i>Сайты под ключ</li>
+      <li><i>#03</i>Дизайн и инфографика в Figma</li>
       <li><i>#04</i>AI-инструменты</li>
     </ul>
   </header>
-</div>
-
-<div class="wrap">
-  <div class="trust" aria-label="Клиенты">
-    <small>Мне доверили свой бизнес</small>
-    <span>ВОДА</span><span>ATS Detailing</span><span>GlobalAuto</span><span>S1 Ceramic</span><span>Академики</span><span>Frog FulFillment</span>
-  </div>
 </div>
 
 <section class="sec wrap" aria-labelledby="why">
