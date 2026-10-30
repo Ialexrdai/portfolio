@@ -94,13 +94,24 @@ p{margin:0}
 }
 
 
-/* why me + images */
-.why-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.why-imgs figure{margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;background:var(--mist);position:relative}
-.why-imgs img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.why-imgs figure:hover img{transform:scale(1.04)}
-.why-imgs figcaption{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600}
-@media (max-width:760px){.why-imgs{grid-template-columns:1fr 1fr}.why-imgs figure:first-child{grid-column:1/-1;aspect-ratio:4/3}}
+/* approach statement + skills */
+.statement{font-size:clamp(28px,3.9vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#b9b0a9;max-width:30ch;margin-bottom:56px;text-wrap:pretty}
+.statement b{color:var(--ink);font-weight:600}
+.skills{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:16px}
+.sk-ph{margin:0;border-radius:var(--r-lg);overflow:hidden;position:relative;min-height:340px;background:var(--mist)}
+.sk-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.sk-ph figcaption{position:absolute;left:14px;bottom:14px;background:var(--accent);color:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600}
+.sk{background:var(--mist);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;gap:10px}
+.sk .n{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:auto}
+.sk h3{font-size:26px;letter-spacing:-.03em;margin-top:40px;padding-top:16px;border-top:2px solid var(--accent)}
+.sk p{font-size:15px;color:var(--muted)}
+.sk .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.sk .tools em{font-style:normal;font-size:12.5px;background:var(--paper);border-radius:999px;padding:4px 10px}
+.sk.dark{background:var(--ink);color:var(--on-dark)}
+.sk.dark p{color:#b9aea6}
+.sk.dark .tools em{background:#2a2420}
+@media (max-width:1000px){.skills{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.skills{grid-template-columns:1fr}.sk-ph{min-height:300px}.sk h3{margin-top:24px}}
 
 /* services bento */
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
@@ -289,21 +300,14 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   </header>
 </div>
 
-<section class="sec wrap" aria-labelledby="why">
-  <div class="head">
-    <div>
-      <span class="eyebrow">Почему я</span>
-      <h2 class="h2" id="why">Сам вёл бизнес и знаю, где теряются деньги</h2>
-    </div>
-    <div>
-      <p class="lead">С 2022 года у меня своя выездная химчистка мебели. Заявки в мессенджерах, расписание в голове и зарплата на калькуляторе — всё это я прошёл сам.</p>
-      <p class="muted" style="margin-top:12px">Поэтому сначала разбираюсь в задаче, а уже потом рисую и пишу код. 3 года в дизайне, 10+ сайтов и 4 веб-приложения.</p>
-    </div>
-  </div>
-  <div class="why-imgs">
-    <figure><img src="img/work-bw.jpg" alt="Алексей за работой"><figcaption>Химчистка с 2022 года</figcaption></figure>
-    <figure><img src="img/ill-clients.jpg" alt="База клиентов с LTV"><figcaption>База клиентов с LTV</figcaption></figure>
-    <figure><img src="img/site1.jpg" alt="Сайт клининговой компании ВОДА"><figcaption>cleaning-voda.ru</figcaption></figure>
+<section class="sec wrap" id="skills" aria-labelledby="sk-h">
+  <span class="eyebrow">Подход</span>
+  <h2 class="statement" id="sk-h">Технические навыки очень важны в нашей работе. Однако <b>в эру нейросетей важно</b> уметь грамотно <b>выстраивать коммуникацию с людьми</b> и правильно понимать задачу</h2>
+  <div class="skills">
+    <figure class="sk-ph"><img src="img/work-bw.jpg" alt="Алексей за работой"><figcaption>Ключевые навыки</figcaption></figure>
+    <article class="sk"><span class="n">#01</span><h3>Дизайн</h3><p>Макеты сайтов и интерфейсов, работа с графикой.</p><div class="tools"><em>Figma</em><em>Photoshop</em></div></article>
+    <article class="sk"><span class="n">#02</span><h3>Разработка</h3><p>Сайты и веб-приложения от макета до рабочей версии.</p><div class="tools"><em>VS Code</em><em>Claude Code</em></div></article>
+    <article class="sk dark"><span class="n">#03</span><h3>Нейросети</h3><p>Промты, генерация изображений, ускорение рутины.</p><div class="tools"><em>Claude Code</em><em>Midjourney</em><em>Nano Banana</em></div></article>
   </div>
 </section>
 
