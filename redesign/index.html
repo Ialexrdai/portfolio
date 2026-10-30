@@ -100,7 +100,7 @@ p{margin:0}
 .statement b{color:var(--ink);font-weight:600}
 .skills{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:16px}
 .sk-ph{margin:0;border-radius:var(--r-lg);overflow:hidden;position:relative;min-height:340px;background:var(--mist)}
-.sk-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.sk-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 78%}
 .sk-ph figcaption{position:absolute;left:14px;bottom:14px;background:var(--accent);color:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600}
 .sk{background:var(--mist);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;gap:10px}
 .sk .n{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:auto}
@@ -355,6 +355,39 @@ footer{font-size:13px}
   97.5%{transform:translate(1px,-2px);text-shadow:-1px 0 rgba(255,0,60,.5),1px 0 rgba(0,220,255,.5)}
 }
 
+/* ---------- skill card micro-animations ---------- */
+.sk .n{margin-bottom:0}
+.sk .viz{flex:1;display:grid;place-items:center;min-height:110px;padding-block:10px}
+.sk h3{margin-top:0}
+/* figma frame */
+.fig{position:relative;width:100%;height:96px;display:grid;place-items:center}
+.fig-l{position:absolute;left:0;top:0;font-size:10px;color:#0d99ff;font-weight:500}
+.fig-f{position:relative;width:118px;height:74px;border:1.5px solid #0d99ff;background:rgba(13,153,255,.06);transition:width .9s cubic-bezier(.65,0,.35,1),height .9s cubic-bezier(.65,0,.35,1)}
+.fig-f i{position:absolute;width:7px;height:7px;background:#fff;border:1.5px solid #0d99ff}
+.fig-f i:nth-child(1){left:-4px;top:-4px}.fig-f i:nth-child(2){right:-4px;top:-4px}.fig-f i:nth-child(3){left:-4px;bottom:-4px}.fig-f i:nth-child(4){right:-4px;bottom:-4px}
+.fig-s{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);background:#0d99ff;color:#fff;font-size:9.5px;font-weight:600;border-radius:4px;padding:2px 6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* terminal */
+.term{width:100%;background:#17120f;border-radius:12px;padding:10px 12px 14px;font:500 12px/1.4 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:#e9e2dc}
+.term-bar{display:flex;gap:5px;margin-bottom:10px}
+.term-bar i{width:8px;height:8px;border-radius:50%;background:#3a322d}
+.term-bar i:first-child{background:var(--accent)}
+.term-p{color:#8fd18f}.term-d{color:#8a817a}
+.term-cur{display:inline-block;width:7px;height:14px;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* thinking */
+.think{display:flex;align-items:center;gap:12px}
+.think-i{width:40px;height:40px;color:var(--accent);animation:thinkSpin 2.4s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes thinkSpin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(90deg) scale(.78)}100%{transform:rotate(180deg) scale(1)}}
+.think-t{font-size:15px;font-weight:500;background:linear-gradient(90deg,#8a7f78 0%,#8a7f78 35%,#fff 50%,#8a7f78 65%,#8a7f78 100%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 2.2s linear infinite}
+@keyframes shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
+/* photo: light TV interference */
+.sk-ph::before,.sk-ph::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1}
+.sk-ph::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0/140px 140px;mix-blend-mode:overlay;opacity:.28;animation:tvNoise .45s steps(4) infinite}
+.sk-ph::after{background:repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px),linear-gradient(180deg,transparent 0 45%,rgba(255,255,255,.18) 45% 49%,transparent 49%) 0 0/100% 300%;mix-blend-mode:soft-light;animation:tvRoll 4s linear infinite}
+.sk-ph figcaption{z-index:2}
+.sk-ph img{animation:photoGlitch 6s steps(1) infinite}
+@keyframes photoGlitch{0%,93%,100%{translate:0 0;filter:none}94%{translate:-3px 0;filter:drop-shadow(3px 0 rgba(255,0,60,.35)) drop-shadow(-3px 0 rgba(0,220,255,.35))}95.5%{translate:2px 0;filter:drop-shadow(-2px 0 rgba(255,0,60,.3)) drop-shadow(2px 0 rgba(0,220,255,.3))}97%{translate:0 0;filter:none}}
+
 /* ---------- motion ---------- */
 .ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
 .ln>span{display:block}
@@ -449,9 +482,9 @@ footer{font-size:13px}
   <h2 class="statement" id="sk-h">Технические навыки очень важны в нашей работе. Однако <b>в эру нейросетей важно</b> уметь грамотно <b>выстраивать коммуникацию с людьми</b> и правильно понимать задачу</h2>
   <div class="skills">
     <figure class="sk-ph"><img src="img/work-bw.jpg" alt="Алексей за работой"><figcaption>Ключевые навыки</figcaption></figure>
-    <article class="sk"><span class="n">#01</span><h3>Дизайн</h3><p>Макеты сайтов и интерфейсов, работа с графикой.</p><div class="tools"><em>Figma</em><em>Photoshop</em></div></article>
-    <article class="sk"><span class="n">#02</span><h3>Разработка</h3><p>Сайты и веб-приложения от макета до рабочей версии.</p><div class="tools"><em>VS Code</em><em>Claude Code</em></div></article>
-    <article class="sk dark"><span class="n">#03</span><h3>Нейросети</h3><p>Промты, генерация изображений, ускорение рутины.</p><div class="tools"><em>Claude Code</em><em>Midjourney</em><em>Nano Banana</em></div></article>
+    <article class="sk"><span class="n">#01</span><div class="viz" aria-hidden="true"><div class="fig"><span class="fig-l">Frame 1</span><div class="fig-f"><i></i><i></i><i></i><i></i><span class="fig-s">1440 × 900</span></div></div></div><h3>Дизайн</h3><p>Макеты сайтов и интерфейсов, работа с графикой.</p><div class="tools"><em>Figma</em><em>Photoshop</em></div></article>
+    <article class="sk"><span class="n">#02</span><div class="viz" aria-hidden="true"><div class="term"><div class="term-bar"><i></i><i></i><i></i></div><div class="term-l"><span class="term-p">~/crm</span> <span class="term-d">$</span> <span class="term-c"></span><span class="term-cur"></span></div></div></div><h3>Разработка</h3><p>Сайты и веб-приложения от макета до рабочей версии.</p><div class="tools"><em>VS Code</em><em>Claude Code</em></div></article>
+    <article class="sk dark"><span class="n">#03</span><div class="viz" aria-hidden="true"><div class="think"><svg class="think-i" viewBox="0 0 40 40"><g fill="currentColor"><rect x="18.5" y="2" width="3" height="14" rx="1.5"/><rect x="18.5" y="24" width="3" height="14" rx="1.5"/><rect x="2" y="18.5" width="14" height="3" rx="1.5"/><rect x="24" y="18.5" width="14" height="3" rx="1.5"/><rect x="18.5" y="2" width="3" height="14" rx="1.5" transform="rotate(45 20 20)"/><rect x="18.5" y="24" width="3" height="14" rx="1.5" transform="rotate(45 20 20)"/><rect x="2" y="18.5" width="14" height="3" rx="1.5" transform="rotate(45 20 20)"/><rect x="24" y="18.5" width="14" height="3" rx="1.5" transform="rotate(45 20 20)"/></g></svg><span class="think-t">Думаю…</span></div></div><h3>Нейросети</h3><p>Промты, генерация изображений, ускорение рутины.</p><div class="tools"><em>Claude Code</em><em>Midjourney</em><em>Nano Banana</em></div></article>
   </div>
 </section>
 
@@ -743,6 +776,25 @@ footer{font-size:13px}
   setTimeout(start,1500);
   if(still) return;
   root.classList.add('js');
+  // skill cards: Figma frame resizes, terminal types commands
+  var figFrame=document.querySelector('.fig-f'), figSize=document.querySelector('.fig-s');
+  if(figFrame){
+    var sizes=[[118,74,'1440 × 900'],[64,112,'390 × 844'],[92,92,'1080 × 1080'],[124,52,'1920 × 800'],[82,104,'1080 × 1350']], si=0;
+    setInterval(function(){si=(si+1)%sizes.length;figFrame.style.width=sizes[si][0]+'px';figFrame.style.height=sizes[si][1]+'px';figSize.textContent=sizes[si][2]},1800);
+  }
+  var cmd=document.querySelector('.term-c');
+  if(cmd){
+    var cmds=['npm run dev','git push','claude'], ci=0, pos=0, dir=1;
+    (function type(){
+      var w=cmds[ci];
+      pos+=dir; cmd.textContent=w.slice(0,pos);
+      var wait=dir>0?90:40;
+      if(dir>0&&pos===w.length){dir=-1;wait=1800}
+      else if(dir<0&&pos===0){dir=1;ci=(ci+1)%cmds.length;wait=500}
+      setTimeout(type,wait);
+    })();
+  }
+
 
   // split the statement into words
   var st=document.querySelector('.statement'), words=[];
