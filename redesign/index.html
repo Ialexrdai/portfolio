@@ -359,13 +359,30 @@ footer{font-size:13px}
 .sk .n{margin-bottom:0}
 .sk .viz{flex:1;display:grid;place-items:center;min-height:110px;padding-block:10px}
 .sk h3{margin-top:0}
-/* figma frame */
-.fig{position:relative;width:100%;height:96px;display:grid;place-items:center}
-.fig-l{position:absolute;left:0;top:0;font-size:10px;color:#0d99ff;font-weight:500}
-.fig-f{position:relative;width:118px;height:74px;border:1.5px solid #0d99ff;background:rgba(13,153,255,.06);transition:width .9s cubic-bezier(.65,0,.35,1),height .9s cubic-bezier(.65,0,.35,1)}
-.fig-f i{position:absolute;width:7px;height:7px;background:#fff;border:1.5px solid #0d99ff}
-.fig-f i:nth-child(1){left:-4px;top:-4px}.fig-f i:nth-child(2){right:-4px;top:-4px}.fig-f i:nth-child(3){left:-4px;bottom:-4px}.fig-f i:nth-child(4){right:-4px;bottom:-4px}
-.fig-s{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);background:#0d99ff;color:#fff;font-size:9.5px;font-weight:600;border-radius:4px;padding:2px 6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* wireframe that assembles itself */
+.wf{width:100%;max-width:240px;border:1.5px solid #cdc6c0;border-radius:10px;background:#fff;overflow:hidden;display:grid;gap:7px;padding-bottom:9px}
+.wf-bar{display:flex;align-items:center;gap:3px;padding:5px 7px;border-bottom:1px solid #e5e0db;background:#f7f5f3}
+.wf-bar i{width:5px;height:5px;border-radius:50%;background:#cdc6c0}
+.wf-bar span{flex:1;height:5px;border-radius:3px;background:#e5e0db;margin-left:6px}
+.wf-nav,.wf-hero,.wf-cards{padding-inline:9px}
+.wf-nav{display:flex;align-items:center;gap:6px}
+.wf-nav b{width:16px;height:7px;border-radius:2px;background:#17120f;margin-right:auto}
+.wf-nav .ln{width:16px;height:3px;border-radius:2px;background:#bdb5ae}
+.wf-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:9px;align-items:center}
+.wf-txt{display:grid;gap:4px;justify-items:start}
+.wf-txt .ln{height:4px;border-radius:2px;background:#bdb5ae}
+.wf-txt .h{width:100%;height:7px;background:#17120f}
+.wf-txt .h2{width:70%;height:7px;background:#17120f}
+.wf-txt .t{width:90%;margin-top:3px}.wf-txt .t2{width:60%}
+.wf-txt .btn-wf{width:36px;height:10px;border-radius:6px;background:#17120f;margin-top:4px}
+.wf-img{height:46px;border-radius:5px;background:linear-gradient(to top right,transparent calc(50% - .75px),#cdc6c0 calc(50% - .75px) calc(50% + .75px),transparent calc(50% + .75px)),linear-gradient(to top left,transparent calc(50% - .75px),#cdc6c0 calc(50% - .75px) calc(50% + .75px),transparent calc(50% + .75px)),#ebe7e3}
+.wf-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.wf-cards span{height:20px;border-radius:4px;background:#f1eeeb;border:1px solid #e5e0db}
+.wf .s{transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.wf .ln{transform-origin:left center}
+.wf.hide .s{opacity:0;transform:translateY(5px) scale(.92)}
+.wf.hide .ln{transform:scaleX(0)}
+.wf.out .s{opacity:0;transform:none;transition:opacity .4s ease}
 /* terminal */
 .term{width:100%;background:#17120f;border-radius:12px;padding:10px 12px 14px;font:500 12px/1.4 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:#e9e2dc}
 .term-bar{display:flex;gap:5px;margin-bottom:10px}
@@ -482,7 +499,12 @@ footer{font-size:13px}
   <h2 class="statement" id="sk-h">Технические навыки очень важны в нашей работе. Однако <b>в эру нейросетей важно</b> уметь грамотно <b>выстраивать коммуникацию с людьми</b> и правильно понимать задачу</h2>
   <div class="skills">
     <figure class="sk-ph"><img src="img/work-bw.jpg" alt="Алексей за работой"><figcaption>Ключевые навыки</figcaption></figure>
-    <article class="sk"><span class="n">#01</span><div class="viz" aria-hidden="true"><div class="fig"><span class="fig-l">Frame 1</span><div class="fig-f"><i></i><i></i><i></i><i></i><span class="fig-s">1440 × 900</span></div></div></div><h3>Дизайн</h3><p>Макеты сайтов и интерфейсов, работа с графикой.</p><div class="tools"><em>Figma</em><em>Photoshop</em></div></article>
+    <article class="sk"><span class="n">#01</span><div class="viz" aria-hidden="true"><div class="wf" data-step="99">
+<div class="wf-bar"><i></i><i></i><i></i><span></span></div>
+<div class="wf-nav"><b class="s" style="--i:1"></b><span class="s ln" style="--i:2"></span><span class="s ln" style="--i:2"></span><span class="s ln" style="--i:2"></span></div>
+<div class="wf-hero"><div class="wf-txt"><span class="s ln h" style="--i:3"></span><span class="s ln h2" style="--i:4"></span><span class="s ln t" style="--i:5"></span><span class="s ln t2" style="--i:5"></span><b class="s btn-wf" style="--i:6"></b></div><div class="s wf-img" style="--i:7"></div></div>
+<div class="wf-cards"><span class="s" style="--i:8"></span><span class="s" style="--i:9"></span><span class="s" style="--i:10"></span></div>
+</div></div><h3>Дизайн</h3><p>Макеты сайтов и интерфейсов, работа с графикой.</p><div class="tools"><em>Figma</em><em>Photoshop</em></div></article>
     <article class="sk"><span class="n">#02</span><div class="viz" aria-hidden="true"><div class="term"><div class="term-bar"><i></i><i></i><i></i></div><div class="term-l"><span class="term-p">~/crm</span> <span class="term-d">$</span> <span class="term-c"></span><span class="term-cur"></span></div></div></div><h3>Разработка</h3><p>Сайты и веб-приложения от макета до рабочей версии.</p><div class="tools"><em>VS Code</em><em>Claude Code</em></div></article>
     <article class="sk dark"><span class="n">#03</span><div class="viz" aria-hidden="true"><div class="think"><svg class="think-i" viewBox="0 0 40 40"><g fill="currentColor"><rect x="18.5" y="2" width="3" height="14" rx="1.5"/><rect x="18.5" y="24" width="3" height="14" rx="1.5"/><rect x="2" y="18.5" width="14" height="3" rx="1.5"/><rect x="24" y="18.5" width="14" height="3" rx="1.5"/><rect x="18.5" y="2" width="3" height="14" rx="1.5" transform="rotate(45 20 20)"/><rect x="18.5" y="24" width="3" height="14" rx="1.5" transform="rotate(45 20 20)"/><rect x="2" y="18.5" width="14" height="3" rx="1.5" transform="rotate(45 20 20)"/><rect x="24" y="18.5" width="14" height="3" rx="1.5" transform="rotate(45 20 20)"/></g></svg><span class="think-t">Думаю…</span></div></div><h3>Нейросети</h3><p>Промты, генерация изображений, ускорение рутины.</p><div class="tools"><em>Claude Code</em><em>Midjourney</em><em>Nano Banana</em></div></article>
   </div>
@@ -777,10 +799,20 @@ footer{font-size:13px}
   if(still) return;
   root.classList.add('js');
   // skill cards: Figma frame resizes, terminal types commands
-  var figFrame=document.querySelector('.fig-f'), figSize=document.querySelector('.fig-s');
-  if(figFrame){
-    var sizes=[[118,74,'1440 × 900'],[64,112,'390 × 844'],[92,92,'1080 × 1080'],[124,52,'1920 × 800'],[82,104,'1080 × 1350']], si=0;
-    setInterval(function(){si=(si+1)%sizes.length;figFrame.style.width=sizes[si][0]+'px';figFrame.style.height=sizes[si][1]+'px';figSize.textContent=sizes[si][2]},1800);
+  var wf=document.querySelector('.wf');
+  if(wf){
+    var parts=wf.querySelectorAll('.s'), steps=10, st0=0;
+    function paint(){
+      parts.forEach(function(el){
+        var on=+el.style.getPropertyValue('--i')<=st0;
+        el.style.opacity=on?'':'0';
+        el.style.transform=on?'':(el.classList.contains('ln')?'scaleX(0)':'translateY(5px) scale(.92)');
+      });
+    }
+    (function tick(){
+      if(st0>steps+5){wf.classList.add('out');setTimeout(function(){wf.classList.remove('out');st0=0;paint();setTimeout(tick,450)},450);return}
+      st0++;paint();setTimeout(tick,st0<=steps?380:400);
+    })();
   }
   var cmd=document.querySelector('.term-c');
   if(cmd){
