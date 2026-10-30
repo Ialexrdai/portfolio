@@ -68,11 +68,16 @@ p{margin:0}
 .nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-size:15px}
 .nav ul a{text-decoration:none;opacity:.85}
 .nav ul a:hover{opacity:1;color:#ffb48f}
-.hero-body{flex:1;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:20px clamp(20px,3.4vw,44px) 40px}
+.hero-body{flex:1;display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px;padding:20px clamp(20px,3.4vw,44px) 40px}
 .hi{color:var(--accent);font-weight:600;font-size:20px;margin-bottom:10px;filter:brightness(1.15)}
 .hero h1{font-size:clamp(46px,8.4vw,136px);line-height:.92;letter-spacing:-.05em;font-weight:800}
 .hero h1 span{display:block}
-.hero-side{max-width:290px;align-self:end;margin-bottom:40px}
+.hero-side{max-width:300px}
+.hero h1{margin-bottom:-.06em}
+.lang{display:flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22)}
+.lang button{font:600 14px/1 var(--font);color:var(--on-dark);background:none;border:0;border-radius:999px;padding:10px 14px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+.lang button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .hero-side b{display:block;font-size:20px;line-height:1.25;font-weight:600;margin-bottom:12px}
 .hero-side p{font-size:14px;opacity:.75;margin-bottom:22px}
 .hero-tags{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:0 clamp(20px,3.4vw,44px) 40px;list-style:none;margin:0}
@@ -262,7 +267,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
         <li><a href="#sites">Сайты</a></li>
         <li><a href="#about">Обо мне</a></li>
       </ul>
-      <a class="btn light" href="https://t.me/ialexrd" target="_blank" rel="noopener">Написать <span class="ar" aria-hidden="true">→</span></a>
+      <div class="lang" role="group" aria-label="Язык сайта"><button type="button" id="lang-ru" aria-pressed="true">RU</button><button type="button" id="lang-en" aria-pressed="false">EN</button></div>
     </nav>
     <div class="hero-body">
       <div class="reveal">
@@ -270,9 +275,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
         <h1><span>Алексей</span><span>Сухоплеска</span></h1>
       </div>
       <div class="hero-side reveal d2">
-        <b>Нейросети пишут код. Я понимаю задачу и людей.</b>
+        <b>Нейросети пишут код.<br>Я понимаю задачу и людей.</b>
         <p>Делаю сайты, которые приносят заявки, и CRM для клининга и выездных служб.</p>
-        <a class="btn orange" href="https://t.me/ialexrd" target="_blank" rel="noopener">Обсудить задачу <span class="ar" aria-hidden="true">→</span></a>
+        <a class="btn orange" href="https://t.me/ialexrd" target="_blank" rel="noopener">Связаться в TG <span class="ar" aria-hidden="true">→</span></a>
       </div>
     </div>
     <ul class="hero-tags reveal d3">
@@ -567,6 +572,14 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   </section>
   <footer><span>© 2026 Алексей Сухоплеска</span><a href="#top">Наверх ↑</a></footer>
 </div>
+
+<script>
+document.querySelectorAll('.lang button').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',String(x===btn))});
+  });
+});
+</script>
 
 </body>
 </html>
