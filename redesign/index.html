@@ -262,7 +262,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
 .ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
 .ln>span{display:block}
 @media (prefers-reduced-motion:no-preference){
-  .hero{animation:heroIn 1.4s cubic-bezier(.7,0,.2,1) both}
+  .hero{animation:heroIn 1.6s cubic-bezier(.16,1,.3,1) both}
+  /* hold the whole intro until the photo and fonts are ready */
+  .hero,.hero *,.hero *::before{animation-play-state:paused!important}
+  .ready .hero,.ready .hero *,.ready .hero *::before{animation-play-state:running!important}
   .hero-ph{animation:phIn 2.2s cubic-bezier(.2,.7,.1,1) .2s both}
   .nav{animation:fadeDown .9s cubic-bezier(.2,.7,.2,1) .9s both}
   .hi{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) .75s both}
@@ -296,9 +299,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   .js .sk h3{border-top-color:transparent;background:linear-gradient(var(--accent),var(--accent)) left top/0% 2px no-repeat;transition:background-size 1s cubic-bezier(.7,0,.2,1) .5s}
   .js .skills.seen .sk h3{background-size:100% 2px}
 }
-@keyframes heroIn{from{clip-path:inset(8% 10% 8% 10% round 48px);transform:scale(.97)}to{clip-path:inset(0 0 0 0 round 0px);transform:none}}
+@keyframes heroIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:none}}
 @keyframes phIn{from{opacity:0;transform:scale(1.2) translateX(4%);filter:contrast(1.15) brightness(1.04) blur(12px)}to{opacity:1;transform:none;filter:contrast(1.15) brightness(1.04) blur(0)}}
-@keyframes lineUp{from{transform:translateY(105%) rotate(3deg)}to{transform:none}}
+@keyframes lineUp{from{transform:translateY(130%)}to{transform:none}}
 @keyframes fadeUp{from{opacity:.001;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes fadeDown{from{opacity:.001;transform:translateY(-16px)}to{opacity:1;transform:none}}
 @keyframes lineX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -630,6 +633,15 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
       document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',String(x===btn))});
     });
   });
+  // start the hero intro once the photo and fonts are loaded (max 1.5 s wait)
+  var started=false;
+  function start(){if(!started){started=true;requestAnimationFrame(function(){root.classList.add('ready')})}}
+  var heroImg=document.querySelector('.hero-ph');
+  Promise.all([
+    heroImg&&heroImg.decode?heroImg.decode().catch(function(){}):null,
+    document.fonts?document.fonts.ready:null
+  ]).then(start);
+  setTimeout(start,1500);
   if(still) return;
   root.classList.add('js');
 
